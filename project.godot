@@ -14,6 +14,10 @@ config/name="project"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MCPGameBridge="res://addons/godot_mcp/game_bridge/mcp_game_bridge.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -21,7 +25,14 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_git/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_git/plugin.cfg", "res://addons/godot_mcp/plugin.cfg")
+
+[godot_mcp]
+
+bind_mode=1
+custom_bind_ip=""
+port_override_enabled=true
+port_override=16550
 
 [physics]
 
