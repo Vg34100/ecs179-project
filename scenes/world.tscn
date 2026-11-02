@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://biw3hgsa8ihhm"]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
-
-[ext_resource type="PackedScene" uid="uid://b1gibq521jsh1" path="res://assets/pikmin/models/red/red_pikmin_leaf.glb" id="2_red"]
+[ext_resource type="PackedScene" path="res://scenes/pikmin.tscn" id="2_red"]
 [ext_resource type="PackedScene" uid="uid://srhmr0tfkc7e" path="res://assets/pikmin/world/models/enemies/bulborb.glb" id="4_bulborb"]
 
 [sub_resource type="Environment" id="Environment_world"]
@@ -48,20 +47,16 @@ mesh = SubResource("Plane_ground")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("Shape_ground")
 
-[node name="RedPikmin" parent="." unique_id=1958063768 instance=ExtResource("2_red")]
-transform = Transform3D(-0.08660254, 0, 0.05000001, 0, 0.1, 0, -0.05000001, 0, -0.08660254, -1.8, 0, 0)
-
-[node name="AnimationPlayer" parent="RedPikmin" index="1" unique_id=980721793]
-autoplay = &"Idle"
+[node name="RedPikmin" parent="." instance=ExtResource("2_red")]
+position = Vector3(-1.8, 0.05, 0)
 
 [node name="Bulborb" parent="." unique_id=1851086026 instance=ExtResource("4_bulborb")]
 transform = Transform3D(-0.08660254, 0, 0.05000001, 0, 0.1, 0, -0.05000001, 0, -0.08660254, 2.1, 0, 0)
 
-[node name="AnimationPlayer" parent="Bulborb" index="1" unique_id=1177934245]
+[node name="AnimationPlayer" parent="Bulborb" index="1" unique_id=1592200206]
 autoplay = &"Idle"
 
-[node name="Player" parent="." instance=ExtResource("1_player")]
-position = Vector3(0, 0.05, 2.5)
+[node name="Player" parent="." unique_id=1763810103 instance=ExtResource("1_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 2.5)
 
-[editable path="RedPikmin"]
 [editable path="Bulborb"]
