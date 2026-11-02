@@ -1,0 +1,776 @@
+{
+  "red": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 1,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.75,
+	  "loop": true
+	},
+	{
+	  "name": "Jump",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Land",
+	  "duration": 0.75,
+	  "loop": false
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Attack",
+	  "duration": 0.8,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	}
+  ],
+  "yellow": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 1,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.75,
+	  "loop": true
+	},
+	{
+	  "name": "Jump",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Land",
+	  "duration": 0.75,
+	  "loop": false
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Attack",
+	  "duration": 0.8,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	}
+  ],
+  "blue": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 1,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.75,
+	  "loop": true
+	},
+	{
+	  "name": "Jump",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Land",
+	  "duration": 0.75,
+	  "loop": false
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Attack",
+	  "duration": 0.8,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	}
+  ],
+  "purple": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 1.3,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.975,
+	  "loop": true
+	},
+	{
+	  "name": "Jump",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Land",
+	  "duration": 0.75,
+	  "loop": false
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Attack",
+	  "duration": 0.8,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	}
+  ],
+  "white": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 0.75,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.5625,
+	  "loop": true
+	},
+	{
+	  "name": "Jump",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Land",
+	  "duration": 0.75,
+	  "loop": false
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Attack",
+	  "duration": 0.8,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	}
+  ],
+  "rock": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 1,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.75,
+	  "loop": true
+	},
+	{
+	  "name": "Jump",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Land",
+	  "duration": 0.75,
+	  "loop": false
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Attack",
+	  "duration": 0.8,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	}
+  ],
+  "winged": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 1,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.75,
+	  "loop": true
+	},
+	{
+	  "name": "Jump",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Land",
+	  "duration": 0.75,
+	  "loop": false
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Attack",
+	  "duration": 0.8,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Hover",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Fly",
+	  "duration": 1,
+	  "loop": true
+	},
+	{
+	  "name": "Takeoff",
+	  "duration": 1.25,
+	  "loop": false
+	},
+	{
+	  "name": "AirCarry",
+	  "duration": 1.5,
+	  "loop": true
+	}
+  ],
+  "ice": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 1.12,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.84,
+	  "loop": true
+	},
+	{
+	  "name": "Jump",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Land",
+	  "duration": 0.75,
+	  "loop": false
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Attack",
+	  "duration": 0.8,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	}
+  ],
+  "glow": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 1,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.75,
+	  "loop": true
+	},
+	{
+	  "name": "Jump",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Land",
+	  "duration": 0.75,
+	  "loop": false
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Attack",
+	  "duration": 0.8,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Hover",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Fly",
+	  "duration": 1,
+	  "loop": true
+	},
+	{
+	  "name": "Takeoff",
+	  "duration": 1.25,
+	  "loop": false
+	},
+	{
+	  "name": "AirCarry",
+	  "duration": 1.5,
+	  "loop": true
+	}
+  ],
+  "shadow": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 1,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.75,
+	  "loop": true
+	},
+	{
+	  "name": "Jump",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Land",
+	  "duration": 0.75,
+	  "loop": false
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Attack",
+	  "duration": 0.8,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	}
+  ],
+  "olimar": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 1.05,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.7,
+	  "loop": true
+	},
+	{
+	  "name": "Whistle",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.5,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Punch",
+	  "duration": 0.9,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Knockdown",
+	  "duration": 1.1,
+	  "loop": false
+	},
+	{
+	  "name": "GetUp",
+	  "duration": 1.5,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Dismiss",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Inspect",
+	  "duration": 2.4,
+	  "loop": true
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Dodge",
+	  "duration": 0.9,
+	  "loop": false
+	},
+	{
+	  "name": "Charge",
+	  "duration": 1.2,
+	  "loop": false
+	}
+  ],
+  "louie": [
+	{
+	  "name": "Idle",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Walk",
+	  "duration": 1.05,
+	  "loop": true
+	},
+	{
+	  "name": "Run",
+	  "duration": 0.7,
+	  "loop": true
+	},
+	{
+	  "name": "Whistle",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Pluck",
+	  "duration": 1.5,
+	  "loop": false
+	},
+	{
+	  "name": "Throw",
+	  "duration": 1,
+	  "loop": false
+	},
+	{
+	  "name": "Punch",
+	  "duration": 0.9,
+	  "loop": true
+	},
+	{
+	  "name": "Hurt",
+	  "duration": 0.8,
+	  "loop": false
+	},
+	{
+	  "name": "Knockdown",
+	  "duration": 1.1,
+	  "loop": false
+	},
+	{
+	  "name": "GetUp",
+	  "duration": 1.5,
+	  "loop": false
+	},
+	{
+	  "name": "Celebrate",
+	  "duration": 2,
+	  "loop": true
+	},
+	{
+	  "name": "Dismiss",
+	  "duration": 1.2,
+	  "loop": false
+	},
+	{
+	  "name": "Inspect",
+	  "duration": 2.4,
+	  "loop": true
+	},
+	{
+	  "name": "Carry",
+	  "duration": 1.5,
+	  "loop": true
+	},
+	{
+	  "name": "Dodge",
+	  "duration": 0.9,
+	  "loop": false
+	},
+	{
+	  "name": "Charge",
+	  "duration": 1.2,
+	  "loop": false
+	}
+  ]
+}

@@ -1,0 +1,445 @@
+{
+  "grid_unit": 1,
+  "texels_per_unit": 1,
+  "scale_reference": "Existing Pikmin and captains, unchanged. Strawberry ~12 units tall; watermelon ~64 units tall.",
+  "onion_colors": {
+    "red": "#dc4240",
+    "yellow": "#f1cf39",
+    "blue": "#3685cf",
+    "purple": "#8f60b5",
+    "white": "#eeeede",
+    "rock": "#58606b",
+    "winged": "#ea83bd",
+    "ice": "#74d7ed",
+    "glow": "#bce856",
+    "shadow": "#302b3d"
+  },
+  "assets": [
+    {
+      "id": "ss_dolphin",
+      "family": "ship",
+      "label": "S.S. Dolphin"
+    },
+    {
+      "id": "red_onion_active",
+      "family": "onion",
+      "color": "red",
+      "hex": "#dc4240",
+      "state": "active",
+      "label": "Red Onion / Active",
+      "fan": false
+    },
+    {
+      "id": "red_onion_dormant",
+      "family": "onion",
+      "color": "red",
+      "hex": "#dc4240",
+      "state": "dormant",
+      "label": "Red Onion / Dormant",
+      "fan": false
+    },
+    {
+      "id": "red_onion_buried",
+      "family": "onion",
+      "color": "red",
+      "hex": "#dc4240",
+      "state": "buried",
+      "label": "Red Onion / Buried",
+      "fan": false
+    },
+    {
+      "id": "yellow_onion_active",
+      "family": "onion",
+      "color": "yellow",
+      "hex": "#f1cf39",
+      "state": "active",
+      "label": "Yellow Onion / Active",
+      "fan": false
+    },
+    {
+      "id": "yellow_onion_dormant",
+      "family": "onion",
+      "color": "yellow",
+      "hex": "#f1cf39",
+      "state": "dormant",
+      "label": "Yellow Onion / Dormant",
+      "fan": false
+    },
+    {
+      "id": "yellow_onion_buried",
+      "family": "onion",
+      "color": "yellow",
+      "hex": "#f1cf39",
+      "state": "buried",
+      "label": "Yellow Onion / Buried",
+      "fan": false
+    },
+    {
+      "id": "blue_onion_active",
+      "family": "onion",
+      "color": "blue",
+      "hex": "#3685cf",
+      "state": "active",
+      "label": "Blue Onion / Active",
+      "fan": false
+    },
+    {
+      "id": "blue_onion_dormant",
+      "family": "onion",
+      "color": "blue",
+      "hex": "#3685cf",
+      "state": "dormant",
+      "label": "Blue Onion / Dormant",
+      "fan": false
+    },
+    {
+      "id": "blue_onion_buried",
+      "family": "onion",
+      "color": "blue",
+      "hex": "#3685cf",
+      "state": "buried",
+      "label": "Blue Onion / Buried",
+      "fan": false
+    },
+    {
+      "id": "purple_onion_active",
+      "family": "onion",
+      "color": "purple",
+      "hex": "#8f60b5",
+      "state": "active",
+      "label": "Purple Onion / Active",
+      "fan": false
+    },
+    {
+      "id": "purple_onion_dormant",
+      "family": "onion",
+      "color": "purple",
+      "hex": "#8f60b5",
+      "state": "dormant",
+      "label": "Purple Onion / Dormant",
+      "fan": false
+    },
+    {
+      "id": "purple_onion_buried",
+      "family": "onion",
+      "color": "purple",
+      "hex": "#8f60b5",
+      "state": "buried",
+      "label": "Purple Onion / Buried",
+      "fan": false
+    },
+    {
+      "id": "white_onion_active",
+      "family": "onion",
+      "color": "white",
+      "hex": "#eeeede",
+      "state": "active",
+      "label": "White Onion / Active",
+      "fan": false
+    },
+    {
+      "id": "white_onion_dormant",
+      "family": "onion",
+      "color": "white",
+      "hex": "#eeeede",
+      "state": "dormant",
+      "label": "White Onion / Dormant",
+      "fan": false
+    },
+    {
+      "id": "white_onion_buried",
+      "family": "onion",
+      "color": "white",
+      "hex": "#eeeede",
+      "state": "buried",
+      "label": "White Onion / Buried",
+      "fan": false
+    },
+    {
+      "id": "rock_onion_active",
+      "family": "onion",
+      "color": "rock",
+      "hex": "#58606b",
+      "state": "active",
+      "label": "Rock Onion / Active",
+      "fan": false
+    },
+    {
+      "id": "rock_onion_dormant",
+      "family": "onion",
+      "color": "rock",
+      "hex": "#58606b",
+      "state": "dormant",
+      "label": "Rock Onion / Dormant",
+      "fan": false
+    },
+    {
+      "id": "rock_onion_buried",
+      "family": "onion",
+      "color": "rock",
+      "hex": "#58606b",
+      "state": "buried",
+      "label": "Rock Onion / Buried",
+      "fan": false
+    },
+    {
+      "id": "winged_onion_active",
+      "family": "onion",
+      "color": "winged",
+      "hex": "#ea83bd",
+      "state": "active",
+      "label": "Winged Onion / Active",
+      "fan": false
+    },
+    {
+      "id": "winged_onion_dormant",
+      "family": "onion",
+      "color": "winged",
+      "hex": "#ea83bd",
+      "state": "dormant",
+      "label": "Winged Onion / Dormant",
+      "fan": false
+    },
+    {
+      "id": "winged_onion_buried",
+      "family": "onion",
+      "color": "winged",
+      "hex": "#ea83bd",
+      "state": "buried",
+      "label": "Winged Onion / Buried",
+      "fan": false
+    },
+    {
+      "id": "ice_onion_active",
+      "family": "onion",
+      "color": "ice",
+      "hex": "#74d7ed",
+      "state": "active",
+      "label": "Ice Onion / Active",
+      "fan": false
+    },
+    {
+      "id": "ice_onion_dormant",
+      "family": "onion",
+      "color": "ice",
+      "hex": "#74d7ed",
+      "state": "dormant",
+      "label": "Ice Onion / Dormant",
+      "fan": false
+    },
+    {
+      "id": "ice_onion_buried",
+      "family": "onion",
+      "color": "ice",
+      "hex": "#74d7ed",
+      "state": "buried",
+      "label": "Ice Onion / Buried",
+      "fan": false
+    },
+    {
+      "id": "glow_onion_active",
+      "family": "onion",
+      "color": "glow",
+      "hex": "#bce856",
+      "state": "active",
+      "label": "Glow Onion / Active",
+      "fan": true
+    },
+    {
+      "id": "glow_onion_dormant",
+      "family": "onion",
+      "color": "glow",
+      "hex": "#bce856",
+      "state": "dormant",
+      "label": "Glow Onion / Dormant",
+      "fan": true
+    },
+    {
+      "id": "glow_onion_buried",
+      "family": "onion",
+      "color": "glow",
+      "hex": "#bce856",
+      "state": "buried",
+      "label": "Glow Onion / Buried",
+      "fan": true
+    },
+    {
+      "id": "shadow_onion_active",
+      "family": "onion",
+      "color": "shadow",
+      "hex": "#302b3d",
+      "state": "active",
+      "label": "Shadow Onion / Active",
+      "fan": true
+    },
+    {
+      "id": "shadow_onion_dormant",
+      "family": "onion",
+      "color": "shadow",
+      "hex": "#302b3d",
+      "state": "dormant",
+      "label": "Shadow Onion / Dormant",
+      "fan": true
+    },
+    {
+      "id": "shadow_onion_buried",
+      "family": "onion",
+      "color": "shadow",
+      "hex": "#302b3d",
+      "state": "buried",
+      "label": "Shadow Onion / Buried",
+      "fan": true
+    },
+    {
+      "id": "merged_onion",
+      "family": "onion",
+      "state": "active",
+      "color": "merged",
+      "hex": "#dc4240",
+      "label": "Merged Onion / all ten types",
+      "fan": true
+    },
+    {
+      "id": "flarlic_dormant",
+      "family": "flarlic",
+      "state": "dormant",
+      "color": "flarlic",
+      "hex": "#e4dda7",
+      "label": "Flarlic / Dormant"
+    },
+    {
+      "id": "flarlic_buried",
+      "family": "flarlic",
+      "state": "buried",
+      "color": "flarlic",
+      "hex": "#e4dda7",
+      "label": "Flarlic / Buried"
+    },
+    {
+      "id": "bulborb",
+      "family": "bulborb",
+      "label": "Bulborb",
+      "category": "enemy"
+    },
+    {
+      "id": "dwarf_bulborb",
+      "family": "bulborb",
+      "label": "Dwarf Bulborb",
+      "category": "enemy"
+    },
+    {
+      "id": "fiery_blowhog",
+      "family": "blowhog",
+      "label": "Fiery Blowhog",
+      "category": "enemy"
+    },
+    {
+      "id": "watery_blowhog",
+      "family": "blowhog",
+      "label": "Watery Blowhog",
+      "category": "enemy"
+    },
+    {
+      "id": "snowy_blowhog",
+      "family": "blowhog",
+      "label": "Snowy Blowhog",
+      "category": "enemy"
+    },
+    {
+      "id": "icy_blowhog",
+      "family": "balloon",
+      "label": "Icy Blowhog",
+      "category": "enemy"
+    },
+    {
+      "id": "wollyhop",
+      "family": "wollyhop",
+      "label": "Wollyhop",
+      "category": "enemy"
+    },
+    {
+      "id": "yellow_wollyhop",
+      "family": "wollyhop",
+      "label": "Yellow Wollyhop",
+      "category": "enemy"
+    },
+    {
+      "id": "chillyhop",
+      "family": "wollyhop",
+      "label": "Chillyhop",
+      "category": "enemy"
+    },
+    {
+      "id": "rubber_duck",
+      "family": "prop",
+      "label": "Rubber Duck",
+      "category": "treasure"
+    },
+    {
+      "id": "strawberry",
+      "family": "prop",
+      "label": "Strawberry",
+      "category": "treasure"
+    },
+    {
+      "id": "watermelon",
+      "family": "prop",
+      "label": "Watermelon",
+      "category": "treasure"
+    },
+    {
+      "id": "binoculars",
+      "family": "prop",
+      "label": "Binoculars",
+      "category": "treasure"
+    },
+    {
+      "id": "gold_nugget",
+      "family": "prop",
+      "label": "Gold Nugget",
+      "category": "treasure"
+    },
+    {
+      "id": "gold_pile",
+      "family": "prop",
+      "label": "Gold Nugget Pile",
+      "category": "treasure"
+    },
+    {
+      "id": "bridge_fragment",
+      "family": "prop",
+      "label": "Bridge Fragment",
+      "category": "construction"
+    },
+    {
+      "id": "bridge_fragment_pile",
+      "family": "prop",
+      "label": "Bridge Material Pile",
+      "category": "construction"
+    },
+    {
+      "id": "bridge_section",
+      "family": "prop",
+      "label": "Bridge Section",
+      "category": "construction"
+    },
+    {
+      "id": "bridge_complete",
+      "family": "prop",
+      "label": "Completed Bridge",
+      "category": "construction"
+    },
+    {
+      "id": "main_engine",
+      "family": "prop",
+      "label": "Main Engine",
+      "category": "treasure"
+    },
+    {
+      "id": "analog_computer",
+      "family": "prop",
+      "label": "Analog Computer",
+      "category": "treasure"
+    }
+  ]
+}

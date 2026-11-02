@@ -1,0 +1,285 @@
+{
+  "model_unit": 1,
+  "texels_per_unit": 1,
+  "types": [
+	"red",
+	"yellow",
+	"blue",
+	"purple",
+	"white",
+	"rock",
+	"winged",
+	"ice",
+	"glow",
+    "shadow"
+  ],
+  "captains": [
+	"olimar",
+    "louie"
+  ],
+  "stages": [
+	"leaf",
+	"bud",
+    "flower"
+  ],
+  "variant_count": 30,
+  "total_model_count": 32,
+  "models": [
+	{
+	  "kind": "red",
+	  "stage": "leaf",
+	  "bbmodel": "models/red/red_pikmin_leaf.bbmodel",
+	  "glb": "models/red/red_pikmin_leaf.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "red",
+	  "stage": "bud",
+	  "bbmodel": "models/red/red_pikmin_bud.bbmodel",
+	  "glb": "models/red/red_pikmin_bud.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "red",
+	  "stage": "flower",
+	  "bbmodel": "models/red/red_pikmin_flower.bbmodel",
+	  "glb": "models/red/red_pikmin_flower.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "yellow",
+	  "stage": "leaf",
+	  "bbmodel": "models/yellow/yellow_pikmin_leaf.bbmodel",
+	  "glb": "models/yellow/yellow_pikmin_leaf.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "yellow",
+	  "stage": "bud",
+	  "bbmodel": "models/yellow/yellow_pikmin_bud.bbmodel",
+	  "glb": "models/yellow/yellow_pikmin_bud.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "yellow",
+	  "stage": "flower",
+	  "bbmodel": "models/yellow/yellow_pikmin_flower.bbmodel",
+	  "glb": "models/yellow/yellow_pikmin_flower.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "blue",
+	  "stage": "leaf",
+	  "bbmodel": "models/blue/blue_pikmin_leaf.bbmodel",
+	  "glb": "models/blue/blue_pikmin_leaf.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "blue",
+	  "stage": "bud",
+	  "bbmodel": "models/blue/blue_pikmin_bud.bbmodel",
+	  "glb": "models/blue/blue_pikmin_bud.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "blue",
+	  "stage": "flower",
+	  "bbmodel": "models/blue/blue_pikmin_flower.bbmodel",
+	  "glb": "models/blue/blue_pikmin_flower.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "purple",
+	  "stage": "leaf",
+	  "bbmodel": "models/purple/purple_pikmin_leaf.bbmodel",
+	  "glb": "models/purple/purple_pikmin_leaf.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "purple",
+	  "stage": "bud",
+	  "bbmodel": "models/purple/purple_pikmin_bud.bbmodel",
+	  "glb": "models/purple/purple_pikmin_bud.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "purple",
+	  "stage": "flower",
+	  "bbmodel": "models/purple/purple_pikmin_flower.bbmodel",
+	  "glb": "models/purple/purple_pikmin_flower.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "white",
+	  "stage": "leaf",
+	  "bbmodel": "models/white/white_pikmin_leaf.bbmodel",
+	  "glb": "models/white/white_pikmin_leaf.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "white",
+	  "stage": "bud",
+	  "bbmodel": "models/white/white_pikmin_bud.bbmodel",
+	  "glb": "models/white/white_pikmin_bud.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "white",
+	  "stage": "flower",
+	  "bbmodel": "models/white/white_pikmin_flower.bbmodel",
+	  "glb": "models/white/white_pikmin_flower.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "rock",
+	  "stage": "leaf",
+	  "bbmodel": "models/rock/rock_pikmin_leaf.bbmodel",
+	  "glb": "models/rock/rock_pikmin_leaf.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "rock",
+	  "stage": "bud",
+	  "bbmodel": "models/rock/rock_pikmin_bud.bbmodel",
+	  "glb": "models/rock/rock_pikmin_bud.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "rock",
+	  "stage": "flower",
+	  "bbmodel": "models/rock/rock_pikmin_flower.bbmodel",
+	  "glb": "models/rock/rock_pikmin_flower.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "winged",
+	  "stage": "leaf",
+	  "bbmodel": "models/winged/winged_pikmin_leaf.bbmodel",
+	  "glb": "models/winged/winged_pikmin_leaf.glb",
+	  "texels_per_unit": 1,
+	  "clips": 15
+	},
+	{
+	  "kind": "winged",
+	  "stage": "bud",
+	  "bbmodel": "models/winged/winged_pikmin_bud.bbmodel",
+	  "glb": "models/winged/winged_pikmin_bud.glb",
+	  "texels_per_unit": 1,
+	  "clips": 15
+	},
+	{
+	  "kind": "winged",
+	  "stage": "flower",
+	  "bbmodel": "models/winged/winged_pikmin_flower.bbmodel",
+	  "glb": "models/winged/winged_pikmin_flower.glb",
+	  "texels_per_unit": 1,
+	  "clips": 15
+	},
+	{
+	  "kind": "ice",
+	  "stage": "leaf",
+	  "bbmodel": "models/ice/ice_pikmin_leaf.bbmodel",
+	  "glb": "models/ice/ice_pikmin_leaf.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "ice",
+	  "stage": "bud",
+	  "bbmodel": "models/ice/ice_pikmin_bud.bbmodel",
+	  "glb": "models/ice/ice_pikmin_bud.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "ice",
+	  "stage": "flower",
+	  "bbmodel": "models/ice/ice_pikmin_flower.bbmodel",
+	  "glb": "models/ice/ice_pikmin_flower.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "glow",
+	  "stage": "leaf",
+	  "bbmodel": "models/glow/glow_pikmin_leaf.bbmodel",
+	  "glb": "models/glow/glow_pikmin_leaf.glb",
+	  "texels_per_unit": 1,
+	  "clips": 15
+	},
+	{
+	  "kind": "glow",
+	  "stage": "bud",
+	  "bbmodel": "models/glow/glow_pikmin_bud.bbmodel",
+	  "glb": "models/glow/glow_pikmin_bud.glb",
+	  "texels_per_unit": 1,
+	  "clips": 15
+	},
+	{
+	  "kind": "glow",
+	  "stage": "flower",
+	  "bbmodel": "models/glow/glow_pikmin_flower.bbmodel",
+	  "glb": "models/glow/glow_pikmin_flower.glb",
+	  "texels_per_unit": 1,
+	  "clips": 15
+	},
+	{
+	  "kind": "shadow",
+	  "stage": "leaf",
+	  "bbmodel": "models/shadow/shadow_pikmin_leaf.bbmodel",
+	  "glb": "models/shadow/shadow_pikmin_leaf.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "shadow",
+	  "stage": "bud",
+	  "bbmodel": "models/shadow/shadow_pikmin_bud.bbmodel",
+	  "glb": "models/shadow/shadow_pikmin_bud.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "shadow",
+	  "stage": "flower",
+	  "bbmodel": "models/shadow/shadow_pikmin_flower.bbmodel",
+	  "glb": "models/shadow/shadow_pikmin_flower.glb",
+	  "texels_per_unit": 1,
+	  "clips": 11
+	},
+	{
+	  "kind": "olimar",
+	  "stage": null,
+	  "bbmodel": "models/olimar/olimar.bbmodel",
+	  "glb": "models/olimar/olimar.glb",
+	  "texels_per_unit": 1,
+	  "clips": 16
+	},
+	{
+	  "kind": "louie",
+	  "stage": null,
+	  "bbmodel": "models/louie/louie.bbmodel",
+	  "glb": "models/louie/louie.glb",
+	  "texels_per_unit": 1,
+	  "clips": 16
+	}
+  ]
+}

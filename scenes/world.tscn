@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://biw3hgsa8ihhm"]
+
+[ext_resource type="PackedScene" uid="uid://b1gibq521jsh1" path="res://assets/pikmin/models/red/red_pikmin_leaf.glb" id="2_red"]
+[ext_resource type="PackedScene" uid="uid://kctp4bpejphj" path="res://assets/pikmin/models/olimar/olimar.glb" id="3_olimar"]
+[ext_resource type="PackedScene" uid="uid://srhmr0tfkc7e" path="res://assets/pikmin/world/models/enemies/bulborb.glb" id="4_bulborb"]
+
+[sub_resource type="Environment" id="Environment_world"]
+background_mode = 1
+background_color = Color(0.065, 0.095, 0.14, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.9, 0.93, 1, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.6
+reflected_light_source = 1
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="Material_ground"]
+albedo_color = Color(0.19, 0.25, 0.21, 1)
+roughness = 0.9
+
+[sub_resource type="PlaneMesh" id="Plane_ground"]
+material = SubResource("Material_ground")
+size = Vector2(14, 12)
+
+[sub_resource type="BoxShape3D" id="Shape_ground"]
+size = Vector3(14, 0.1, 12)
+
+[node name="World" type="Node3D" unique_id=753570163]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=144933389]
+environment = SubResource("Environment_world")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1668273019]
+transform = Transform3D(0.81915206, 0.4055798, -0.4055798, 0, 0.70710677, 0.70710677, 0.57357645, -0.579228, 0.579228, 0, 0, 0)
+light_color = Color(1, 0.92, 0.8, 1)
+light_angular_distance = 1.0
+shadow_enabled = true
+shadow_opacity = 0.65
+directional_shadow_max_distance = 20.0
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=479041898]
+mesh = SubResource("Plane_ground")
+
+[node name="GroundCollision" type="StaticBody3D" parent="Floor" unique_id=1347180662]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/GroundCollision" unique_id=1834990188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("Shape_ground")
+
+[node name="RedPikmin" parent="." unique_id=1958063768 instance=ExtResource("2_red")]
+transform = Transform3D(-0.08660254, 0, 0.05000001, 0, 0.1, 0, -0.05000001, 0, -0.08660254, -1.8, 0, 0)
+
+[node name="AnimationPlayer" parent="RedPikmin" index="1" unique_id=980721793]
+autoplay = &"Idle"
+
+[node name="Olimar" parent="." instance=ExtResource("3_olimar")]
+transform = Transform3D(-0.08660254, 0, 0.05000001, 0, 0.1, 0, -0.05000001, 0, -0.08660254, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="Olimar" index="1"]
+autoplay = &"Idle"
+
+[node name="Bulborb" parent="." unique_id=1851086026 instance=ExtResource("4_bulborb")]
+transform = Transform3D(-0.08660254, 0, 0.05000001, 0, 0.1, 0, -0.05000001, 0, -0.08660254, 2.1, 0, 0)
+
+[node name="AnimationPlayer" parent="Bulborb" index="1" unique_id=1177934245]
+autoplay = &"Idle"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.8411806, -0.16125722, 0.5161504, 0, 0.9545009, 0.29820797, -0.54075426, -0.25084677, 0.80290765, 4.5, 3.4, 7)
+projection = 1
+current = true
+size = 7.6
+
+[editable path="RedPikmin"]
+[editable path="Olimar"]
+[editable path="Bulborb"]

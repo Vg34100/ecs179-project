@@ -1,0 +1,8259 @@
+{
+  "asset_count": 55,
+  "animation_clip_count": 264,
+  "model_units_per_texel": 1,
+  "style": "Broad cuboids and rectangular planes, consistent one-unit texture squares.",
+  "assets": [
+    {
+      "id": "ss_dolphin",
+      "family": "ship",
+      "label": "S.S. Dolphin",
+      "animation_family": "ship",
+      "moving_gears": [
+        "landing_gear_0",
+        "landing_gear_1",
+        "landing_gear_2"
+      ],
+      "repair_groups": {
+        "main_engine": "installed_main_engine",
+        "analog_computer": "internal"
+      },
+      "interaction": {
+        "treasure_intake": "treasure_intake",
+        "part_intake": "part_intake"
+      },
+      "art_revision": 2,
+      "notes": "Broad tapered hull, pixel-painted porthole and dial, articulated cream-inlaid fins and layered metal fittings. Game code supplies exhaust and intake particles.",
+      "bbmodel": "models/ship/ss_dolphin.bbmodel",
+      "glb": "models/ship/ss_dolphin.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 68,
+      "groups": 29,
+      "bounds": {
+        "min": [
+          -13.990381056766577,
+          0,
+          -9.23205080756888
+        ],
+        "max": [
+          13.990381056766582,
+          45.08078151340949,
+          15.38567829348214
+        ],
+        "size": [
+          27.98076211353316,
+          45.08078151340949,
+          24.61772910105102
+        ]
+      },
+      "anchors": {
+        "treasure_intake": {
+          "node": "anchor_treasure_intake",
+          "position": [
+            0,
+            3.5,
+            -2
+          ]
+        },
+        "part_intake": {
+          "node": "anchor_part_intake",
+          "position": [
+            0,
+            3.5,
+            -2
+          ]
+        },
+        "main_engine_socket": {
+          "node": "anchor_main_engine_socket",
+          "position": [
+            0,
+            4,
+            0
+          ]
+        },
+        "analog_computer_socket": {
+          "node": "anchor_analog_computer_socket",
+          "position": [
+            0,
+            17,
+            2
+          ]
+        },
+        "exhaust": {
+          "node": "anchor_exhaust",
+          "position": [
+            0,
+            1,
+            0
+          ]
+        },
+        "captain_exit": {
+          "node": "anchor_captain_exit",
+          "position": [
+            0,
+            0,
+            -14
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Start",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "Blastoff",
+          "length": 4,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "CaptureTreasure",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "CapturePart",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Start": [
+          {
+            "time": 0.625,
+            "event": "engine_start",
+            "anchor": "exhaust"
+          },
+          {
+            "time": 2,
+            "event": "gear_retracted",
+            "anchor": "exhaust"
+          }
+        ],
+        "Blastoff": [
+          {
+            "time": 0.32,
+            "event": "exhaust_on",
+            "anchor": "exhaust"
+          },
+          {
+            "time": 4,
+            "event": "departed",
+            "anchor": "exhaust"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.64,
+            "event": "touchdown",
+            "anchor": "captain_exit"
+          }
+        ],
+        "CaptureTreasure": [
+          {
+            "time": 0.484,
+            "event": "intake_begin",
+            "anchor": "treasure_intake"
+          },
+          {
+            "time": 1.32,
+            "event": "credit_treasure",
+            "anchor": "treasure_intake"
+          },
+          {
+            "time": 1.98,
+            "event": "intake_end",
+            "anchor": "treasure_intake"
+          }
+        ],
+        "CapturePart": [
+          {
+            "time": 0.66,
+            "event": "intake_begin",
+            "anchor": "part_intake"
+          },
+          {
+            "time": 1.8,
+            "event": "install_part",
+            "anchor": "part_intake"
+          },
+          {
+            "time": 2.7,
+            "event": "intake_end",
+            "anchor": "treasure_intake"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.05999999999999872,
+          "samples": 769
+        },
+        {
+          "clip": "Start",
+          "minimum_y": 0.05978386727224526,
+          "samples": 481
+        },
+        {
+          "clip": "Blastoff",
+          "minimum_y": 1.8115044392596809,
+          "samples": 769
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.05975872870671861,
+          "samples": 577
+        },
+        {
+          "clip": "CaptureTreasure",
+          "minimum_y": 0.05999999999999872,
+          "samples": 425
+        },
+        {
+          "clip": "CapturePart",
+          "minimum_y": 0.05999999999999872,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "ss_dolphin_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "red_onion_active",
+      "family": "onion",
+      "color": "red",
+      "hex": "#dc4240",
+      "state": "active",
+      "label": "Red Onion / Active",
+      "fan": false,
+      "animation_family": "onion_active",
+      "legs": [
+        "leg_upper_0",
+        "leg_lower_0",
+        "leg_upper_1",
+        "leg_lower_1",
+        "leg_upper_2",
+        "leg_lower_2"
+      ],
+      "sector_materials": [],
+      "unlocks": [
+        "red"
+      ],
+      "capacity_bonus": 0,
+      "bbmodel": "models/onions/red_onion_active.bbmodel",
+      "glb": "models/onions/red_onion_active.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 356,
+      "groups": 23,
+      "bounds": {
+        "min": [
+          -7.428203230275506,
+          0,
+          -5
+        ],
+        "max": [
+          7.4282032302755105,
+          23.196152422706632,
+          8
+        ],
+        "size": [
+          14.856406460551018,
+          23.196152422706632,
+          13
+        ]
+      },
+      "anchors": {
+        "seed_eject": {
+          "node": "anchor_seed_eject",
+          "position": [
+            0,
+            23.196152422706632,
+            0
+          ]
+        },
+        "food_intake": {
+          "node": "anchor_food_intake",
+          "position": [
+            0,
+            8.196152422706632,
+            0
+          ]
+        },
+        "pikmin_entry": {
+          "node": "anchor_pikmin_entry",
+          "position": [
+            0,
+            -0.803847577293368,
+            -7
+          ]
+        },
+        "pikmin_exit": {
+          "node": "anchor_pikmin_exit",
+          "position": [
+            0,
+            -0.803847577293368,
+            -8
+          ]
+        },
+        "merge_target": {
+          "node": "anchor_merge_target",
+          "position": [
+            0,
+            14.196152422706632,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Activate",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "SeedSpit",
+          "length": 1.6,
+          "loop": false
+        },
+        {
+          "name": "ReceiveFood",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Withdraw",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Return",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Merge",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "Takeoff",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Activate": [
+          {
+            "time": 0.5,
+            "event": "activation_start",
+            "anchor": "merge_target"
+          },
+          {
+            "time": 2.25,
+            "event": "base_ready",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "SeedSpit": [
+          {
+            "time": 0.672,
+            "event": "emit_seed",
+            "anchor": "seed_eject",
+            "velocity": [
+              0,
+              12,
+              -5
+            ]
+          }
+        ],
+        "ReceiveFood": [
+          {
+            "time": 0.81,
+            "event": "absorb_food",
+            "anchor": "food_intake"
+          }
+        ],
+        "Withdraw": [
+          {
+            "time": 0.81,
+            "event": "release_pikmin",
+            "anchor": "pikmin_exit"
+          }
+        ],
+        "Return": [
+          {
+            "time": 0.81,
+            "event": "store_pikmin",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "Merge": [
+          {
+            "time": 1.1,
+            "event": "apply_onion_color",
+            "anchor": "merge_target"
+          }
+        ],
+        "Takeoff": [
+          {
+            "time": 1.35,
+            "event": "onion_airborne",
+            "anchor": "merge_target"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.7,
+            "event": "onion_touchdown",
+            "anchor": "merge_target"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.0600000000000005,
+          "samples": 769
+        },
+        {
+          "clip": "Activate",
+          "minimum_y": 0.05996345192026259,
+          "samples": 481
+        },
+        {
+          "clip": "SeedSpit",
+          "minimum_y": 0.0600000000000005,
+          "samples": 309
+        },
+        {
+          "clip": "ReceiveFood",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Withdraw",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Return",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Merge",
+          "minimum_y": 0.0600000000000005,
+          "samples": 425
+        },
+        {
+          "clip": "Takeoff",
+          "minimum_y": 0.05989949595165245,
+          "samples": 577
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.059999999761620904,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0.803847577293368,
+      "textures": [
+        {
+          "name": "red_onion_active_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "red_onion_dormant",
+      "family": "onion",
+      "color": "red",
+      "hex": "#dc4240",
+      "state": "dormant",
+      "label": "Red Onion / Dormant",
+      "fan": false,
+      "animation_family": "dormant",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "red"
+      ],
+      "swap_on_activation": "red_onion_active",
+      "bbmodel": "models/onions/red_onion_dormant.bbmodel",
+      "glb": "models/onions/red_onion_dormant.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 153,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          11,
+          4
+        ],
+        "size": [
+          8,
+          11,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "red_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "red"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "red_onion_dormant_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "red_onion_buried",
+      "family": "onion",
+      "color": "red",
+      "hex": "#dc4240",
+      "state": "buried",
+      "label": "Red Onion / Buried",
+      "fan": false,
+      "animation_family": "buried",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "red"
+      ],
+      "swap_on_activation": "red_onion_active",
+      "bbmodel": "models/onions/red_onion_buried.bbmodel",
+      "glb": "models/onions/red_onion_buried.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 161,
+      "groups": 10,
+      "bounds": {
+        "min": [
+          -6,
+          -4,
+          -6
+        ],
+        "max": [
+          6,
+          7,
+          6
+        ],
+        "size": [
+          12,
+          11,
+          12
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            -1,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "red_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "red"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "red_onion_buried_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "yellow_onion_active",
+      "family": "onion",
+      "color": "yellow",
+      "hex": "#f1cf39",
+      "state": "active",
+      "label": "Yellow Onion / Active",
+      "fan": false,
+      "animation_family": "onion_active",
+      "legs": [
+        "leg_upper_0",
+        "leg_lower_0",
+        "leg_upper_1",
+        "leg_lower_1",
+        "leg_upper_2",
+        "leg_lower_2"
+      ],
+      "sector_materials": [],
+      "unlocks": [
+        "yellow"
+      ],
+      "capacity_bonus": 0,
+      "bbmodel": "models/onions/yellow_onion_active.bbmodel",
+      "glb": "models/onions/yellow_onion_active.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 356,
+      "groups": 23,
+      "bounds": {
+        "min": [
+          -7.428203230275506,
+          0,
+          -5
+        ],
+        "max": [
+          7.4282032302755105,
+          23.196152422706632,
+          8
+        ],
+        "size": [
+          14.856406460551018,
+          23.196152422706632,
+          13
+        ]
+      },
+      "anchors": {
+        "seed_eject": {
+          "node": "anchor_seed_eject",
+          "position": [
+            0,
+            23.196152422706632,
+            0
+          ]
+        },
+        "food_intake": {
+          "node": "anchor_food_intake",
+          "position": [
+            0,
+            8.196152422706632,
+            0
+          ]
+        },
+        "pikmin_entry": {
+          "node": "anchor_pikmin_entry",
+          "position": [
+            0,
+            -0.803847577293368,
+            -7
+          ]
+        },
+        "pikmin_exit": {
+          "node": "anchor_pikmin_exit",
+          "position": [
+            0,
+            -0.803847577293368,
+            -8
+          ]
+        },
+        "merge_target": {
+          "node": "anchor_merge_target",
+          "position": [
+            0,
+            14.196152422706632,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Activate",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "SeedSpit",
+          "length": 1.6,
+          "loop": false
+        },
+        {
+          "name": "ReceiveFood",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Withdraw",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Return",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Merge",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "Takeoff",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Activate": [
+          {
+            "time": 0.5,
+            "event": "activation_start",
+            "anchor": "merge_target"
+          },
+          {
+            "time": 2.25,
+            "event": "base_ready",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "SeedSpit": [
+          {
+            "time": 0.672,
+            "event": "emit_seed",
+            "anchor": "seed_eject",
+            "velocity": [
+              0,
+              12,
+              -5
+            ]
+          }
+        ],
+        "ReceiveFood": [
+          {
+            "time": 0.81,
+            "event": "absorb_food",
+            "anchor": "food_intake"
+          }
+        ],
+        "Withdraw": [
+          {
+            "time": 0.81,
+            "event": "release_pikmin",
+            "anchor": "pikmin_exit"
+          }
+        ],
+        "Return": [
+          {
+            "time": 0.81,
+            "event": "store_pikmin",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "Merge": [
+          {
+            "time": 1.1,
+            "event": "apply_onion_color",
+            "anchor": "merge_target"
+          }
+        ],
+        "Takeoff": [
+          {
+            "time": 1.35,
+            "event": "onion_airborne",
+            "anchor": "merge_target"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.7,
+            "event": "onion_touchdown",
+            "anchor": "merge_target"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.0600000000000005,
+          "samples": 769
+        },
+        {
+          "clip": "Activate",
+          "minimum_y": 0.05996345192026259,
+          "samples": 481
+        },
+        {
+          "clip": "SeedSpit",
+          "minimum_y": 0.0600000000000005,
+          "samples": 309
+        },
+        {
+          "clip": "ReceiveFood",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Withdraw",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Return",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Merge",
+          "minimum_y": 0.0600000000000005,
+          "samples": 425
+        },
+        {
+          "clip": "Takeoff",
+          "minimum_y": 0.05989949595165245,
+          "samples": 577
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.059999999761620904,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0.803847577293368,
+      "textures": [
+        {
+          "name": "yellow_onion_active_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "yellow_onion_dormant",
+      "family": "onion",
+      "color": "yellow",
+      "hex": "#f1cf39",
+      "state": "dormant",
+      "label": "Yellow Onion / Dormant",
+      "fan": false,
+      "animation_family": "dormant",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "yellow"
+      ],
+      "swap_on_activation": "yellow_onion_active",
+      "bbmodel": "models/onions/yellow_onion_dormant.bbmodel",
+      "glb": "models/onions/yellow_onion_dormant.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 153,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          11,
+          4
+        ],
+        "size": [
+          8,
+          11,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "yellow_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "yellow"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "yellow_onion_dormant_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "yellow_onion_buried",
+      "family": "onion",
+      "color": "yellow",
+      "hex": "#f1cf39",
+      "state": "buried",
+      "label": "Yellow Onion / Buried",
+      "fan": false,
+      "animation_family": "buried",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "yellow"
+      ],
+      "swap_on_activation": "yellow_onion_active",
+      "bbmodel": "models/onions/yellow_onion_buried.bbmodel",
+      "glb": "models/onions/yellow_onion_buried.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 161,
+      "groups": 10,
+      "bounds": {
+        "min": [
+          -6,
+          -4,
+          -6
+        ],
+        "max": [
+          6,
+          7,
+          6
+        ],
+        "size": [
+          12,
+          11,
+          12
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            -1,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "yellow_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "yellow"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "yellow_onion_buried_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "blue_onion_active",
+      "family": "onion",
+      "color": "blue",
+      "hex": "#3685cf",
+      "state": "active",
+      "label": "Blue Onion / Active",
+      "fan": false,
+      "animation_family": "onion_active",
+      "legs": [
+        "leg_upper_0",
+        "leg_lower_0",
+        "leg_upper_1",
+        "leg_lower_1",
+        "leg_upper_2",
+        "leg_lower_2"
+      ],
+      "sector_materials": [],
+      "unlocks": [
+        "blue"
+      ],
+      "capacity_bonus": 0,
+      "bbmodel": "models/onions/blue_onion_active.bbmodel",
+      "glb": "models/onions/blue_onion_active.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 356,
+      "groups": 23,
+      "bounds": {
+        "min": [
+          -7.428203230275506,
+          0,
+          -5
+        ],
+        "max": [
+          7.4282032302755105,
+          23.196152422706632,
+          8
+        ],
+        "size": [
+          14.856406460551018,
+          23.196152422706632,
+          13
+        ]
+      },
+      "anchors": {
+        "seed_eject": {
+          "node": "anchor_seed_eject",
+          "position": [
+            0,
+            23.196152422706632,
+            0
+          ]
+        },
+        "food_intake": {
+          "node": "anchor_food_intake",
+          "position": [
+            0,
+            8.196152422706632,
+            0
+          ]
+        },
+        "pikmin_entry": {
+          "node": "anchor_pikmin_entry",
+          "position": [
+            0,
+            -0.803847577293368,
+            -7
+          ]
+        },
+        "pikmin_exit": {
+          "node": "anchor_pikmin_exit",
+          "position": [
+            0,
+            -0.803847577293368,
+            -8
+          ]
+        },
+        "merge_target": {
+          "node": "anchor_merge_target",
+          "position": [
+            0,
+            14.196152422706632,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Activate",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "SeedSpit",
+          "length": 1.6,
+          "loop": false
+        },
+        {
+          "name": "ReceiveFood",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Withdraw",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Return",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Merge",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "Takeoff",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Activate": [
+          {
+            "time": 0.5,
+            "event": "activation_start",
+            "anchor": "merge_target"
+          },
+          {
+            "time": 2.25,
+            "event": "base_ready",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "SeedSpit": [
+          {
+            "time": 0.672,
+            "event": "emit_seed",
+            "anchor": "seed_eject",
+            "velocity": [
+              0,
+              12,
+              -5
+            ]
+          }
+        ],
+        "ReceiveFood": [
+          {
+            "time": 0.81,
+            "event": "absorb_food",
+            "anchor": "food_intake"
+          }
+        ],
+        "Withdraw": [
+          {
+            "time": 0.81,
+            "event": "release_pikmin",
+            "anchor": "pikmin_exit"
+          }
+        ],
+        "Return": [
+          {
+            "time": 0.81,
+            "event": "store_pikmin",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "Merge": [
+          {
+            "time": 1.1,
+            "event": "apply_onion_color",
+            "anchor": "merge_target"
+          }
+        ],
+        "Takeoff": [
+          {
+            "time": 1.35,
+            "event": "onion_airborne",
+            "anchor": "merge_target"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.7,
+            "event": "onion_touchdown",
+            "anchor": "merge_target"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.0600000000000005,
+          "samples": 769
+        },
+        {
+          "clip": "Activate",
+          "minimum_y": 0.05996345192026259,
+          "samples": 481
+        },
+        {
+          "clip": "SeedSpit",
+          "minimum_y": 0.0600000000000005,
+          "samples": 309
+        },
+        {
+          "clip": "ReceiveFood",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Withdraw",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Return",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Merge",
+          "minimum_y": 0.0600000000000005,
+          "samples": 425
+        },
+        {
+          "clip": "Takeoff",
+          "minimum_y": 0.05989949595165245,
+          "samples": 577
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.059999999761620904,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0.803847577293368,
+      "textures": [
+        {
+          "name": "blue_onion_active_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "blue_onion_dormant",
+      "family": "onion",
+      "color": "blue",
+      "hex": "#3685cf",
+      "state": "dormant",
+      "label": "Blue Onion / Dormant",
+      "fan": false,
+      "animation_family": "dormant",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "blue"
+      ],
+      "swap_on_activation": "blue_onion_active",
+      "bbmodel": "models/onions/blue_onion_dormant.bbmodel",
+      "glb": "models/onions/blue_onion_dormant.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 153,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          11,
+          4
+        ],
+        "size": [
+          8,
+          11,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "blue_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "blue"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "blue_onion_dormant_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "blue_onion_buried",
+      "family": "onion",
+      "color": "blue",
+      "hex": "#3685cf",
+      "state": "buried",
+      "label": "Blue Onion / Buried",
+      "fan": false,
+      "animation_family": "buried",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "blue"
+      ],
+      "swap_on_activation": "blue_onion_active",
+      "bbmodel": "models/onions/blue_onion_buried.bbmodel",
+      "glb": "models/onions/blue_onion_buried.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 161,
+      "groups": 10,
+      "bounds": {
+        "min": [
+          -6,
+          -4,
+          -6
+        ],
+        "max": [
+          6,
+          7,
+          6
+        ],
+        "size": [
+          12,
+          11,
+          12
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            -1,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "blue_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "blue"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "blue_onion_buried_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "purple_onion_active",
+      "family": "onion",
+      "color": "purple",
+      "hex": "#8f60b5",
+      "state": "active",
+      "label": "Purple Onion / Active",
+      "fan": false,
+      "animation_family": "onion_active",
+      "legs": [
+        "leg_upper_0",
+        "leg_lower_0",
+        "leg_upper_1",
+        "leg_lower_1",
+        "leg_upper_2",
+        "leg_lower_2"
+      ],
+      "sector_materials": [],
+      "unlocks": [
+        "purple"
+      ],
+      "capacity_bonus": 0,
+      "bbmodel": "models/onions/purple_onion_active.bbmodel",
+      "glb": "models/onions/purple_onion_active.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 356,
+      "groups": 23,
+      "bounds": {
+        "min": [
+          -7.428203230275506,
+          0,
+          -5
+        ],
+        "max": [
+          7.4282032302755105,
+          23.196152422706632,
+          8
+        ],
+        "size": [
+          14.856406460551018,
+          23.196152422706632,
+          13
+        ]
+      },
+      "anchors": {
+        "seed_eject": {
+          "node": "anchor_seed_eject",
+          "position": [
+            0,
+            23.196152422706632,
+            0
+          ]
+        },
+        "food_intake": {
+          "node": "anchor_food_intake",
+          "position": [
+            0,
+            8.196152422706632,
+            0
+          ]
+        },
+        "pikmin_entry": {
+          "node": "anchor_pikmin_entry",
+          "position": [
+            0,
+            -0.803847577293368,
+            -7
+          ]
+        },
+        "pikmin_exit": {
+          "node": "anchor_pikmin_exit",
+          "position": [
+            0,
+            -0.803847577293368,
+            -8
+          ]
+        },
+        "merge_target": {
+          "node": "anchor_merge_target",
+          "position": [
+            0,
+            14.196152422706632,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Activate",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "SeedSpit",
+          "length": 1.6,
+          "loop": false
+        },
+        {
+          "name": "ReceiveFood",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Withdraw",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Return",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Merge",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "Takeoff",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Activate": [
+          {
+            "time": 0.5,
+            "event": "activation_start",
+            "anchor": "merge_target"
+          },
+          {
+            "time": 2.25,
+            "event": "base_ready",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "SeedSpit": [
+          {
+            "time": 0.672,
+            "event": "emit_seed",
+            "anchor": "seed_eject",
+            "velocity": [
+              0,
+              12,
+              -5
+            ]
+          }
+        ],
+        "ReceiveFood": [
+          {
+            "time": 0.81,
+            "event": "absorb_food",
+            "anchor": "food_intake"
+          }
+        ],
+        "Withdraw": [
+          {
+            "time": 0.81,
+            "event": "release_pikmin",
+            "anchor": "pikmin_exit"
+          }
+        ],
+        "Return": [
+          {
+            "time": 0.81,
+            "event": "store_pikmin",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "Merge": [
+          {
+            "time": 1.1,
+            "event": "apply_onion_color",
+            "anchor": "merge_target"
+          }
+        ],
+        "Takeoff": [
+          {
+            "time": 1.35,
+            "event": "onion_airborne",
+            "anchor": "merge_target"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.7,
+            "event": "onion_touchdown",
+            "anchor": "merge_target"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.0600000000000005,
+          "samples": 769
+        },
+        {
+          "clip": "Activate",
+          "minimum_y": 0.05996345192026259,
+          "samples": 481
+        },
+        {
+          "clip": "SeedSpit",
+          "minimum_y": 0.0600000000000005,
+          "samples": 309
+        },
+        {
+          "clip": "ReceiveFood",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Withdraw",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Return",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Merge",
+          "minimum_y": 0.0600000000000005,
+          "samples": 425
+        },
+        {
+          "clip": "Takeoff",
+          "minimum_y": 0.05989949595165245,
+          "samples": 577
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.059999999761620904,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0.803847577293368,
+      "textures": [
+        {
+          "name": "purple_onion_active_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "purple_onion_dormant",
+      "family": "onion",
+      "color": "purple",
+      "hex": "#8f60b5",
+      "state": "dormant",
+      "label": "Purple Onion / Dormant",
+      "fan": false,
+      "animation_family": "dormant",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "purple"
+      ],
+      "swap_on_activation": "purple_onion_active",
+      "bbmodel": "models/onions/purple_onion_dormant.bbmodel",
+      "glb": "models/onions/purple_onion_dormant.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 153,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          11,
+          4
+        ],
+        "size": [
+          8,
+          11,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "purple_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "purple"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "purple_onion_dormant_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "purple_onion_buried",
+      "family": "onion",
+      "color": "purple",
+      "hex": "#8f60b5",
+      "state": "buried",
+      "label": "Purple Onion / Buried",
+      "fan": false,
+      "animation_family": "buried",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "purple"
+      ],
+      "swap_on_activation": "purple_onion_active",
+      "bbmodel": "models/onions/purple_onion_buried.bbmodel",
+      "glb": "models/onions/purple_onion_buried.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 161,
+      "groups": 10,
+      "bounds": {
+        "min": [
+          -6,
+          -4,
+          -6
+        ],
+        "max": [
+          6,
+          7,
+          6
+        ],
+        "size": [
+          12,
+          11,
+          12
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            -1,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "purple_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "purple"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "purple_onion_buried_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "white_onion_active",
+      "family": "onion",
+      "color": "white",
+      "hex": "#eeeede",
+      "state": "active",
+      "label": "White Onion / Active",
+      "fan": false,
+      "animation_family": "onion_active",
+      "legs": [
+        "leg_upper_0",
+        "leg_lower_0",
+        "leg_upper_1",
+        "leg_lower_1",
+        "leg_upper_2",
+        "leg_lower_2"
+      ],
+      "sector_materials": [],
+      "unlocks": [
+        "white"
+      ],
+      "capacity_bonus": 0,
+      "bbmodel": "models/onions/white_onion_active.bbmodel",
+      "glb": "models/onions/white_onion_active.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 356,
+      "groups": 23,
+      "bounds": {
+        "min": [
+          -7.428203230275506,
+          0,
+          -5
+        ],
+        "max": [
+          7.4282032302755105,
+          23.196152422706632,
+          8
+        ],
+        "size": [
+          14.856406460551018,
+          23.196152422706632,
+          13
+        ]
+      },
+      "anchors": {
+        "seed_eject": {
+          "node": "anchor_seed_eject",
+          "position": [
+            0,
+            23.196152422706632,
+            0
+          ]
+        },
+        "food_intake": {
+          "node": "anchor_food_intake",
+          "position": [
+            0,
+            8.196152422706632,
+            0
+          ]
+        },
+        "pikmin_entry": {
+          "node": "anchor_pikmin_entry",
+          "position": [
+            0,
+            -0.803847577293368,
+            -7
+          ]
+        },
+        "pikmin_exit": {
+          "node": "anchor_pikmin_exit",
+          "position": [
+            0,
+            -0.803847577293368,
+            -8
+          ]
+        },
+        "merge_target": {
+          "node": "anchor_merge_target",
+          "position": [
+            0,
+            14.196152422706632,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Activate",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "SeedSpit",
+          "length": 1.6,
+          "loop": false
+        },
+        {
+          "name": "ReceiveFood",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Withdraw",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Return",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Merge",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "Takeoff",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Activate": [
+          {
+            "time": 0.5,
+            "event": "activation_start",
+            "anchor": "merge_target"
+          },
+          {
+            "time": 2.25,
+            "event": "base_ready",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "SeedSpit": [
+          {
+            "time": 0.672,
+            "event": "emit_seed",
+            "anchor": "seed_eject",
+            "velocity": [
+              0,
+              12,
+              -5
+            ]
+          }
+        ],
+        "ReceiveFood": [
+          {
+            "time": 0.81,
+            "event": "absorb_food",
+            "anchor": "food_intake"
+          }
+        ],
+        "Withdraw": [
+          {
+            "time": 0.81,
+            "event": "release_pikmin",
+            "anchor": "pikmin_exit"
+          }
+        ],
+        "Return": [
+          {
+            "time": 0.81,
+            "event": "store_pikmin",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "Merge": [
+          {
+            "time": 1.1,
+            "event": "apply_onion_color",
+            "anchor": "merge_target"
+          }
+        ],
+        "Takeoff": [
+          {
+            "time": 1.35,
+            "event": "onion_airborne",
+            "anchor": "merge_target"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.7,
+            "event": "onion_touchdown",
+            "anchor": "merge_target"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.0600000000000005,
+          "samples": 769
+        },
+        {
+          "clip": "Activate",
+          "minimum_y": 0.05996345192026259,
+          "samples": 481
+        },
+        {
+          "clip": "SeedSpit",
+          "minimum_y": 0.0600000000000005,
+          "samples": 309
+        },
+        {
+          "clip": "ReceiveFood",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Withdraw",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Return",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Merge",
+          "minimum_y": 0.0600000000000005,
+          "samples": 425
+        },
+        {
+          "clip": "Takeoff",
+          "minimum_y": 0.05989949595165245,
+          "samples": 577
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.059999999761620904,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0.803847577293368,
+      "textures": [
+        {
+          "name": "white_onion_active_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "white_onion_dormant",
+      "family": "onion",
+      "color": "white",
+      "hex": "#eeeede",
+      "state": "dormant",
+      "label": "White Onion / Dormant",
+      "fan": false,
+      "animation_family": "dormant",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "white"
+      ],
+      "swap_on_activation": "white_onion_active",
+      "bbmodel": "models/onions/white_onion_dormant.bbmodel",
+      "glb": "models/onions/white_onion_dormant.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 153,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          11,
+          4
+        ],
+        "size": [
+          8,
+          11,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "white_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "white"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "white_onion_dormant_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "white_onion_buried",
+      "family": "onion",
+      "color": "white",
+      "hex": "#eeeede",
+      "state": "buried",
+      "label": "White Onion / Buried",
+      "fan": false,
+      "animation_family": "buried",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "white"
+      ],
+      "swap_on_activation": "white_onion_active",
+      "bbmodel": "models/onions/white_onion_buried.bbmodel",
+      "glb": "models/onions/white_onion_buried.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 161,
+      "groups": 10,
+      "bounds": {
+        "min": [
+          -6,
+          -4,
+          -6
+        ],
+        "max": [
+          6,
+          7,
+          6
+        ],
+        "size": [
+          12,
+          11,
+          12
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            -1,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "white_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "white"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "white_onion_buried_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "rock_onion_active",
+      "family": "onion",
+      "color": "rock",
+      "hex": "#58606b",
+      "state": "active",
+      "label": "Rock Onion / Active",
+      "fan": false,
+      "animation_family": "onion_active",
+      "legs": [
+        "leg_upper_0",
+        "leg_lower_0",
+        "leg_upper_1",
+        "leg_lower_1",
+        "leg_upper_2",
+        "leg_lower_2"
+      ],
+      "sector_materials": [],
+      "unlocks": [
+        "rock"
+      ],
+      "capacity_bonus": 0,
+      "bbmodel": "models/onions/rock_onion_active.bbmodel",
+      "glb": "models/onions/rock_onion_active.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 356,
+      "groups": 23,
+      "bounds": {
+        "min": [
+          -7.428203230275506,
+          0,
+          -5
+        ],
+        "max": [
+          7.4282032302755105,
+          23.196152422706632,
+          8
+        ],
+        "size": [
+          14.856406460551018,
+          23.196152422706632,
+          13
+        ]
+      },
+      "anchors": {
+        "seed_eject": {
+          "node": "anchor_seed_eject",
+          "position": [
+            0,
+            23.196152422706632,
+            0
+          ]
+        },
+        "food_intake": {
+          "node": "anchor_food_intake",
+          "position": [
+            0,
+            8.196152422706632,
+            0
+          ]
+        },
+        "pikmin_entry": {
+          "node": "anchor_pikmin_entry",
+          "position": [
+            0,
+            -0.803847577293368,
+            -7
+          ]
+        },
+        "pikmin_exit": {
+          "node": "anchor_pikmin_exit",
+          "position": [
+            0,
+            -0.803847577293368,
+            -8
+          ]
+        },
+        "merge_target": {
+          "node": "anchor_merge_target",
+          "position": [
+            0,
+            14.196152422706632,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Activate",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "SeedSpit",
+          "length": 1.6,
+          "loop": false
+        },
+        {
+          "name": "ReceiveFood",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Withdraw",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Return",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Merge",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "Takeoff",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Activate": [
+          {
+            "time": 0.5,
+            "event": "activation_start",
+            "anchor": "merge_target"
+          },
+          {
+            "time": 2.25,
+            "event": "base_ready",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "SeedSpit": [
+          {
+            "time": 0.672,
+            "event": "emit_seed",
+            "anchor": "seed_eject",
+            "velocity": [
+              0,
+              12,
+              -5
+            ]
+          }
+        ],
+        "ReceiveFood": [
+          {
+            "time": 0.81,
+            "event": "absorb_food",
+            "anchor": "food_intake"
+          }
+        ],
+        "Withdraw": [
+          {
+            "time": 0.81,
+            "event": "release_pikmin",
+            "anchor": "pikmin_exit"
+          }
+        ],
+        "Return": [
+          {
+            "time": 0.81,
+            "event": "store_pikmin",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "Merge": [
+          {
+            "time": 1.1,
+            "event": "apply_onion_color",
+            "anchor": "merge_target"
+          }
+        ],
+        "Takeoff": [
+          {
+            "time": 1.35,
+            "event": "onion_airborne",
+            "anchor": "merge_target"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.7,
+            "event": "onion_touchdown",
+            "anchor": "merge_target"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.0600000000000005,
+          "samples": 769
+        },
+        {
+          "clip": "Activate",
+          "minimum_y": 0.05996345192026259,
+          "samples": 481
+        },
+        {
+          "clip": "SeedSpit",
+          "minimum_y": 0.0600000000000005,
+          "samples": 309
+        },
+        {
+          "clip": "ReceiveFood",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Withdraw",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Return",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Merge",
+          "minimum_y": 0.0600000000000005,
+          "samples": 425
+        },
+        {
+          "clip": "Takeoff",
+          "minimum_y": 0.05989949595165245,
+          "samples": 577
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.059999999761620904,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0.803847577293368,
+      "textures": [
+        {
+          "name": "rock_onion_active_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "rock_onion_dormant",
+      "family": "onion",
+      "color": "rock",
+      "hex": "#58606b",
+      "state": "dormant",
+      "label": "Rock Onion / Dormant",
+      "fan": false,
+      "animation_family": "dormant",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "rock"
+      ],
+      "swap_on_activation": "rock_onion_active",
+      "bbmodel": "models/onions/rock_onion_dormant.bbmodel",
+      "glb": "models/onions/rock_onion_dormant.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 153,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          11,
+          4
+        ],
+        "size": [
+          8,
+          11,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "rock_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "rock"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "rock_onion_dormant_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "rock_onion_buried",
+      "family": "onion",
+      "color": "rock",
+      "hex": "#58606b",
+      "state": "buried",
+      "label": "Rock Onion / Buried",
+      "fan": false,
+      "animation_family": "buried",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "rock"
+      ],
+      "swap_on_activation": "rock_onion_active",
+      "bbmodel": "models/onions/rock_onion_buried.bbmodel",
+      "glb": "models/onions/rock_onion_buried.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 161,
+      "groups": 10,
+      "bounds": {
+        "min": [
+          -6,
+          -4,
+          -6
+        ],
+        "max": [
+          6,
+          7,
+          6
+        ],
+        "size": [
+          12,
+          11,
+          12
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            -1,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "rock_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "rock"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "rock_onion_buried_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "winged_onion_active",
+      "family": "onion",
+      "color": "winged",
+      "hex": "#ea83bd",
+      "state": "active",
+      "label": "Winged Onion / Active",
+      "fan": false,
+      "animation_family": "onion_active",
+      "legs": [
+        "leg_upper_0",
+        "leg_lower_0",
+        "leg_upper_1",
+        "leg_lower_1",
+        "leg_upper_2",
+        "leg_lower_2"
+      ],
+      "sector_materials": [],
+      "unlocks": [
+        "winged"
+      ],
+      "capacity_bonus": 0,
+      "bbmodel": "models/onions/winged_onion_active.bbmodel",
+      "glb": "models/onions/winged_onion_active.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 356,
+      "groups": 23,
+      "bounds": {
+        "min": [
+          -7.428203230275506,
+          0,
+          -5
+        ],
+        "max": [
+          7.4282032302755105,
+          23.196152422706632,
+          8
+        ],
+        "size": [
+          14.856406460551018,
+          23.196152422706632,
+          13
+        ]
+      },
+      "anchors": {
+        "seed_eject": {
+          "node": "anchor_seed_eject",
+          "position": [
+            0,
+            23.196152422706632,
+            0
+          ]
+        },
+        "food_intake": {
+          "node": "anchor_food_intake",
+          "position": [
+            0,
+            8.196152422706632,
+            0
+          ]
+        },
+        "pikmin_entry": {
+          "node": "anchor_pikmin_entry",
+          "position": [
+            0,
+            -0.803847577293368,
+            -7
+          ]
+        },
+        "pikmin_exit": {
+          "node": "anchor_pikmin_exit",
+          "position": [
+            0,
+            -0.803847577293368,
+            -8
+          ]
+        },
+        "merge_target": {
+          "node": "anchor_merge_target",
+          "position": [
+            0,
+            14.196152422706632,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Activate",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "SeedSpit",
+          "length": 1.6,
+          "loop": false
+        },
+        {
+          "name": "ReceiveFood",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Withdraw",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Return",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Merge",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "Takeoff",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Activate": [
+          {
+            "time": 0.5,
+            "event": "activation_start",
+            "anchor": "merge_target"
+          },
+          {
+            "time": 2.25,
+            "event": "base_ready",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "SeedSpit": [
+          {
+            "time": 0.672,
+            "event": "emit_seed",
+            "anchor": "seed_eject",
+            "velocity": [
+              0,
+              12,
+              -5
+            ]
+          }
+        ],
+        "ReceiveFood": [
+          {
+            "time": 0.81,
+            "event": "absorb_food",
+            "anchor": "food_intake"
+          }
+        ],
+        "Withdraw": [
+          {
+            "time": 0.81,
+            "event": "release_pikmin",
+            "anchor": "pikmin_exit"
+          }
+        ],
+        "Return": [
+          {
+            "time": 0.81,
+            "event": "store_pikmin",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "Merge": [
+          {
+            "time": 1.1,
+            "event": "apply_onion_color",
+            "anchor": "merge_target"
+          }
+        ],
+        "Takeoff": [
+          {
+            "time": 1.35,
+            "event": "onion_airborne",
+            "anchor": "merge_target"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.7,
+            "event": "onion_touchdown",
+            "anchor": "merge_target"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.0600000000000005,
+          "samples": 769
+        },
+        {
+          "clip": "Activate",
+          "minimum_y": 0.05996345192026259,
+          "samples": 481
+        },
+        {
+          "clip": "SeedSpit",
+          "minimum_y": 0.0600000000000005,
+          "samples": 309
+        },
+        {
+          "clip": "ReceiveFood",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Withdraw",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Return",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Merge",
+          "minimum_y": 0.0600000000000005,
+          "samples": 425
+        },
+        {
+          "clip": "Takeoff",
+          "minimum_y": 0.05989949595165245,
+          "samples": 577
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.059999999761620904,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0.803847577293368,
+      "textures": [
+        {
+          "name": "winged_onion_active_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "winged_onion_dormant",
+      "family": "onion",
+      "color": "winged",
+      "hex": "#ea83bd",
+      "state": "dormant",
+      "label": "Winged Onion / Dormant",
+      "fan": false,
+      "animation_family": "dormant",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "winged"
+      ],
+      "swap_on_activation": "winged_onion_active",
+      "bbmodel": "models/onions/winged_onion_dormant.bbmodel",
+      "glb": "models/onions/winged_onion_dormant.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 153,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          11,
+          4
+        ],
+        "size": [
+          8,
+          11,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "winged_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "winged"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "winged_onion_dormant_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "winged_onion_buried",
+      "family": "onion",
+      "color": "winged",
+      "hex": "#ea83bd",
+      "state": "buried",
+      "label": "Winged Onion / Buried",
+      "fan": false,
+      "animation_family": "buried",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "winged"
+      ],
+      "swap_on_activation": "winged_onion_active",
+      "bbmodel": "models/onions/winged_onion_buried.bbmodel",
+      "glb": "models/onions/winged_onion_buried.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 161,
+      "groups": 10,
+      "bounds": {
+        "min": [
+          -6,
+          -4,
+          -6
+        ],
+        "max": [
+          6,
+          7,
+          6
+        ],
+        "size": [
+          12,
+          11,
+          12
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            -1,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "winged_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "winged"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "winged_onion_buried_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "ice_onion_active",
+      "family": "onion",
+      "color": "ice",
+      "hex": "#74d7ed",
+      "state": "active",
+      "label": "Ice Onion / Active",
+      "fan": false,
+      "animation_family": "onion_active",
+      "legs": [
+        "leg_upper_0",
+        "leg_lower_0",
+        "leg_upper_1",
+        "leg_lower_1",
+        "leg_upper_2",
+        "leg_lower_2"
+      ],
+      "sector_materials": [],
+      "unlocks": [
+        "ice"
+      ],
+      "capacity_bonus": 0,
+      "bbmodel": "models/onions/ice_onion_active.bbmodel",
+      "glb": "models/onions/ice_onion_active.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 356,
+      "groups": 23,
+      "bounds": {
+        "min": [
+          -7.428203230275506,
+          0,
+          -5
+        ],
+        "max": [
+          7.4282032302755105,
+          23.196152422706632,
+          8
+        ],
+        "size": [
+          14.856406460551018,
+          23.196152422706632,
+          13
+        ]
+      },
+      "anchors": {
+        "seed_eject": {
+          "node": "anchor_seed_eject",
+          "position": [
+            0,
+            23.196152422706632,
+            0
+          ]
+        },
+        "food_intake": {
+          "node": "anchor_food_intake",
+          "position": [
+            0,
+            8.196152422706632,
+            0
+          ]
+        },
+        "pikmin_entry": {
+          "node": "anchor_pikmin_entry",
+          "position": [
+            0,
+            -0.803847577293368,
+            -7
+          ]
+        },
+        "pikmin_exit": {
+          "node": "anchor_pikmin_exit",
+          "position": [
+            0,
+            -0.803847577293368,
+            -8
+          ]
+        },
+        "merge_target": {
+          "node": "anchor_merge_target",
+          "position": [
+            0,
+            14.196152422706632,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Activate",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "SeedSpit",
+          "length": 1.6,
+          "loop": false
+        },
+        {
+          "name": "ReceiveFood",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Withdraw",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Return",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Merge",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "Takeoff",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Activate": [
+          {
+            "time": 0.5,
+            "event": "activation_start",
+            "anchor": "merge_target"
+          },
+          {
+            "time": 2.25,
+            "event": "base_ready",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "SeedSpit": [
+          {
+            "time": 0.672,
+            "event": "emit_seed",
+            "anchor": "seed_eject",
+            "velocity": [
+              0,
+              12,
+              -5
+            ]
+          }
+        ],
+        "ReceiveFood": [
+          {
+            "time": 0.81,
+            "event": "absorb_food",
+            "anchor": "food_intake"
+          }
+        ],
+        "Withdraw": [
+          {
+            "time": 0.81,
+            "event": "release_pikmin",
+            "anchor": "pikmin_exit"
+          }
+        ],
+        "Return": [
+          {
+            "time": 0.81,
+            "event": "store_pikmin",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "Merge": [
+          {
+            "time": 1.1,
+            "event": "apply_onion_color",
+            "anchor": "merge_target"
+          }
+        ],
+        "Takeoff": [
+          {
+            "time": 1.35,
+            "event": "onion_airborne",
+            "anchor": "merge_target"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.7,
+            "event": "onion_touchdown",
+            "anchor": "merge_target"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.0600000000000005,
+          "samples": 769
+        },
+        {
+          "clip": "Activate",
+          "minimum_y": 0.05996345192026259,
+          "samples": 481
+        },
+        {
+          "clip": "SeedSpit",
+          "minimum_y": 0.0600000000000005,
+          "samples": 309
+        },
+        {
+          "clip": "ReceiveFood",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Withdraw",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Return",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Merge",
+          "minimum_y": 0.0600000000000005,
+          "samples": 425
+        },
+        {
+          "clip": "Takeoff",
+          "minimum_y": 0.05989949595165245,
+          "samples": 577
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.059999999761620904,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0.803847577293368,
+      "textures": [
+        {
+          "name": "ice_onion_active_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "ice_onion_dormant",
+      "family": "onion",
+      "color": "ice",
+      "hex": "#74d7ed",
+      "state": "dormant",
+      "label": "Ice Onion / Dormant",
+      "fan": false,
+      "animation_family": "dormant",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "ice"
+      ],
+      "swap_on_activation": "ice_onion_active",
+      "bbmodel": "models/onions/ice_onion_dormant.bbmodel",
+      "glb": "models/onions/ice_onion_dormant.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 153,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          11,
+          4
+        ],
+        "size": [
+          8,
+          11,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "ice_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "ice"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "ice_onion_dormant_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "ice_onion_buried",
+      "family": "onion",
+      "color": "ice",
+      "hex": "#74d7ed",
+      "state": "buried",
+      "label": "Ice Onion / Buried",
+      "fan": false,
+      "animation_family": "buried",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "ice"
+      ],
+      "swap_on_activation": "ice_onion_active",
+      "bbmodel": "models/onions/ice_onion_buried.bbmodel",
+      "glb": "models/onions/ice_onion_buried.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 161,
+      "groups": 10,
+      "bounds": {
+        "min": [
+          -6,
+          -4,
+          -6
+        ],
+        "max": [
+          6,
+          7,
+          6
+        ],
+        "size": [
+          12,
+          11,
+          12
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            -1,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "ice_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "ice"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "ice_onion_buried_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "glow_onion_active",
+      "family": "onion",
+      "color": "glow",
+      "hex": "#bce856",
+      "state": "active",
+      "label": "Glow Onion / Active",
+      "fan": true,
+      "animation_family": "onion_active",
+      "legs": [
+        "leg_upper_0",
+        "leg_lower_0",
+        "leg_upper_1",
+        "leg_lower_1",
+        "leg_upper_2",
+        "leg_lower_2"
+      ],
+      "sector_materials": [],
+      "unlocks": [
+        "glow"
+      ],
+      "capacity_bonus": 0,
+      "bbmodel": "models/onions/glow_onion_active.bbmodel",
+      "glb": "models/onions/glow_onion_active.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 356,
+      "groups": 23,
+      "bounds": {
+        "min": [
+          -7.428203230275506,
+          0,
+          -5
+        ],
+        "max": [
+          7.4282032302755105,
+          23.196152422706632,
+          8
+        ],
+        "size": [
+          14.856406460551018,
+          23.196152422706632,
+          13
+        ]
+      },
+      "anchors": {
+        "seed_eject": {
+          "node": "anchor_seed_eject",
+          "position": [
+            0,
+            23.196152422706632,
+            0
+          ]
+        },
+        "food_intake": {
+          "node": "anchor_food_intake",
+          "position": [
+            0,
+            8.196152422706632,
+            0
+          ]
+        },
+        "pikmin_entry": {
+          "node": "anchor_pikmin_entry",
+          "position": [
+            0,
+            -0.803847577293368,
+            -7
+          ]
+        },
+        "pikmin_exit": {
+          "node": "anchor_pikmin_exit",
+          "position": [
+            0,
+            -0.803847577293368,
+            -8
+          ]
+        },
+        "merge_target": {
+          "node": "anchor_merge_target",
+          "position": [
+            0,
+            14.196152422706632,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Activate",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "SeedSpit",
+          "length": 1.6,
+          "loop": false
+        },
+        {
+          "name": "ReceiveFood",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Withdraw",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Return",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Merge",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "Takeoff",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Activate": [
+          {
+            "time": 0.5,
+            "event": "activation_start",
+            "anchor": "merge_target"
+          },
+          {
+            "time": 2.25,
+            "event": "base_ready",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "SeedSpit": [
+          {
+            "time": 0.672,
+            "event": "emit_seed",
+            "anchor": "seed_eject",
+            "velocity": [
+              0,
+              12,
+              -5
+            ]
+          }
+        ],
+        "ReceiveFood": [
+          {
+            "time": 0.81,
+            "event": "absorb_food",
+            "anchor": "food_intake"
+          }
+        ],
+        "Withdraw": [
+          {
+            "time": 0.81,
+            "event": "release_pikmin",
+            "anchor": "pikmin_exit"
+          }
+        ],
+        "Return": [
+          {
+            "time": 0.81,
+            "event": "store_pikmin",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "Merge": [
+          {
+            "time": 1.1,
+            "event": "apply_onion_color",
+            "anchor": "merge_target"
+          }
+        ],
+        "Takeoff": [
+          {
+            "time": 1.35,
+            "event": "onion_airborne",
+            "anchor": "merge_target"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.7,
+            "event": "onion_touchdown",
+            "anchor": "merge_target"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.0600000000000005,
+          "samples": 769
+        },
+        {
+          "clip": "Activate",
+          "minimum_y": 0.05996345192026259,
+          "samples": 481
+        },
+        {
+          "clip": "SeedSpit",
+          "minimum_y": 0.0600000000000005,
+          "samples": 309
+        },
+        {
+          "clip": "ReceiveFood",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Withdraw",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Return",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Merge",
+          "minimum_y": 0.0600000000000005,
+          "samples": 425
+        },
+        {
+          "clip": "Takeoff",
+          "minimum_y": 0.05989949595165245,
+          "samples": 577
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.059999999761620904,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0.803847577293368,
+      "textures": [
+        {
+          "name": "glow_onion_active_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "glow_onion_dormant",
+      "family": "onion",
+      "color": "glow",
+      "hex": "#bce856",
+      "state": "dormant",
+      "label": "Glow Onion / Dormant",
+      "fan": true,
+      "animation_family": "dormant",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "glow"
+      ],
+      "swap_on_activation": "glow_onion_active",
+      "bbmodel": "models/onions/glow_onion_dormant.bbmodel",
+      "glb": "models/onions/glow_onion_dormant.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 153,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          11,
+          4
+        ],
+        "size": [
+          8,
+          11,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "glow_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "glow"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "glow_onion_dormant_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "glow_onion_buried",
+      "family": "onion",
+      "color": "glow",
+      "hex": "#bce856",
+      "state": "buried",
+      "label": "Glow Onion / Buried",
+      "fan": true,
+      "animation_family": "buried",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "glow"
+      ],
+      "swap_on_activation": "glow_onion_active",
+      "bbmodel": "models/onions/glow_onion_buried.bbmodel",
+      "glb": "models/onions/glow_onion_buried.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 161,
+      "groups": 10,
+      "bounds": {
+        "min": [
+          -6,
+          -4,
+          -6
+        ],
+        "max": [
+          6,
+          7,
+          6
+        ],
+        "size": [
+          12,
+          11,
+          12
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            -1,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "glow_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "glow"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "glow_onion_buried_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "shadow_onion_active",
+      "family": "onion",
+      "color": "shadow",
+      "hex": "#302b3d",
+      "state": "active",
+      "label": "Shadow Onion / Active",
+      "fan": true,
+      "animation_family": "onion_active",
+      "legs": [
+        "leg_upper_0",
+        "leg_lower_0",
+        "leg_upper_1",
+        "leg_lower_1",
+        "leg_upper_2",
+        "leg_lower_2"
+      ],
+      "sector_materials": [],
+      "unlocks": [
+        "shadow"
+      ],
+      "capacity_bonus": 0,
+      "bbmodel": "models/onions/shadow_onion_active.bbmodel",
+      "glb": "models/onions/shadow_onion_active.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 356,
+      "groups": 23,
+      "bounds": {
+        "min": [
+          -7.428203230275506,
+          0,
+          -5
+        ],
+        "max": [
+          7.4282032302755105,
+          23.196152422706632,
+          8
+        ],
+        "size": [
+          14.856406460551018,
+          23.196152422706632,
+          13
+        ]
+      },
+      "anchors": {
+        "seed_eject": {
+          "node": "anchor_seed_eject",
+          "position": [
+            0,
+            23.196152422706632,
+            0
+          ]
+        },
+        "food_intake": {
+          "node": "anchor_food_intake",
+          "position": [
+            0,
+            8.196152422706632,
+            0
+          ]
+        },
+        "pikmin_entry": {
+          "node": "anchor_pikmin_entry",
+          "position": [
+            0,
+            -0.803847577293368,
+            -7
+          ]
+        },
+        "pikmin_exit": {
+          "node": "anchor_pikmin_exit",
+          "position": [
+            0,
+            -0.803847577293368,
+            -8
+          ]
+        },
+        "merge_target": {
+          "node": "anchor_merge_target",
+          "position": [
+            0,
+            14.196152422706632,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Activate",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "SeedSpit",
+          "length": 1.6,
+          "loop": false
+        },
+        {
+          "name": "ReceiveFood",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Withdraw",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Return",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Merge",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "Takeoff",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Activate": [
+          {
+            "time": 0.5,
+            "event": "activation_start",
+            "anchor": "merge_target"
+          },
+          {
+            "time": 2.25,
+            "event": "base_ready",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "SeedSpit": [
+          {
+            "time": 0.672,
+            "event": "emit_seed",
+            "anchor": "seed_eject",
+            "velocity": [
+              0,
+              12,
+              -5
+            ]
+          }
+        ],
+        "ReceiveFood": [
+          {
+            "time": 0.81,
+            "event": "absorb_food",
+            "anchor": "food_intake"
+          }
+        ],
+        "Withdraw": [
+          {
+            "time": 0.81,
+            "event": "release_pikmin",
+            "anchor": "pikmin_exit"
+          }
+        ],
+        "Return": [
+          {
+            "time": 0.81,
+            "event": "store_pikmin",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "Merge": [
+          {
+            "time": 1.1,
+            "event": "apply_onion_color",
+            "anchor": "merge_target"
+          }
+        ],
+        "Takeoff": [
+          {
+            "time": 1.35,
+            "event": "onion_airborne",
+            "anchor": "merge_target"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.7,
+            "event": "onion_touchdown",
+            "anchor": "merge_target"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.0600000000000005,
+          "samples": 769
+        },
+        {
+          "clip": "Activate",
+          "minimum_y": 0.05996345192026259,
+          "samples": 481
+        },
+        {
+          "clip": "SeedSpit",
+          "minimum_y": 0.0600000000000005,
+          "samples": 309
+        },
+        {
+          "clip": "ReceiveFood",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Withdraw",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Return",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Merge",
+          "minimum_y": 0.0600000000000005,
+          "samples": 425
+        },
+        {
+          "clip": "Takeoff",
+          "minimum_y": 0.05989949595165245,
+          "samples": 577
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.059999999761620904,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0.803847577293368,
+      "textures": [
+        {
+          "name": "shadow_onion_active_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "shadow_onion_dormant",
+      "family": "onion",
+      "color": "shadow",
+      "hex": "#302b3d",
+      "state": "dormant",
+      "label": "Shadow Onion / Dormant",
+      "fan": true,
+      "animation_family": "dormant",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "shadow"
+      ],
+      "swap_on_activation": "shadow_onion_active",
+      "bbmodel": "models/onions/shadow_onion_dormant.bbmodel",
+      "glb": "models/onions/shadow_onion_dormant.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 153,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          11,
+          4
+        ],
+        "size": [
+          8,
+          11,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "shadow_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "shadow"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "shadow_onion_dormant_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "shadow_onion_buried",
+      "family": "onion",
+      "color": "shadow",
+      "hex": "#302b3d",
+      "state": "buried",
+      "label": "Shadow Onion / Buried",
+      "fan": true,
+      "animation_family": "buried",
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "capacity_bonus": 0,
+      "unlocks": [
+        "shadow"
+      ],
+      "swap_on_activation": "shadow_onion_active",
+      "bbmodel": "models/onions/shadow_onion_buried.bbmodel",
+      "glb": "models/onions/shadow_onion_buried.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 161,
+      "groups": 10,
+      "bounds": {
+        "min": [
+          -6,
+          -4,
+          -6
+        ],
+        "max": [
+          6,
+          7,
+          6
+        ],
+        "size": [
+          12,
+          11,
+          12
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            -1,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "shadow_onion_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "unlock_onion",
+            "anchor": "carry_center",
+            "amount": 0,
+            "type": "shadow"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "shadow_onion_buried_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "merged_onion",
+      "family": "onion",
+      "state": "active",
+      "color": "merged",
+      "hex": "#dc4240",
+      "label": "Merged Onion / all ten types",
+      "fan": true,
+      "animation_family": "onion_active",
+      "legs": [
+        "leg_upper_0",
+        "leg_lower_0",
+        "leg_upper_1",
+        "leg_lower_1",
+        "leg_upper_2",
+        "leg_lower_2"
+      ],
+      "sector_materials": [
+        {
+          "material": "merged_sector_01_red.png",
+          "sector": 0,
+          "type": "red",
+          "texture_size": 16
+        },
+        {
+          "material": "merged_sector_02_yellow.png",
+          "sector": 1,
+          "type": "yellow",
+          "texture_size": 16
+        },
+        {
+          "material": "merged_sector_03_blue.png",
+          "sector": 2,
+          "type": "blue",
+          "texture_size": 16
+        },
+        {
+          "material": "merged_sector_04_purple.png",
+          "sector": 3,
+          "type": "purple",
+          "texture_size": 16
+        },
+        {
+          "material": "merged_sector_05_white.png",
+          "sector": 4,
+          "type": "white",
+          "texture_size": 16
+        },
+        {
+          "material": "merged_sector_06_rock.png",
+          "sector": 5,
+          "type": "rock",
+          "texture_size": 16
+        },
+        {
+          "material": "merged_sector_07_winged.png",
+          "sector": 6,
+          "type": "winged",
+          "texture_size": 16
+        },
+        {
+          "material": "merged_sector_08_ice.png",
+          "sector": 7,
+          "type": "ice",
+          "texture_size": 16
+        },
+        {
+          "material": "merged_sector_09_glow.png",
+          "sector": 8,
+          "type": "glow",
+          "texture_size": 16
+        },
+        {
+          "material": "merged_sector_10_shadow.png",
+          "sector": 9,
+          "type": "shadow",
+          "texture_size": 16
+        }
+      ],
+      "unlocks": [
+        "red",
+        "yellow",
+        "blue",
+        "purple",
+        "white",
+        "rock",
+        "winged",
+        "ice",
+        "glow",
+        "shadow"
+      ],
+      "capacity_bonus": 0,
+      "bbmodel": "models/onions/merged_onion.bbmodel",
+      "glb": "models/onions/merged_onion.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 356,
+      "groups": 33,
+      "bounds": {
+        "min": [
+          -7.428203230275506,
+          0,
+          -5
+        ],
+        "max": [
+          7.4282032302755105,
+          23.196152422706632,
+          8
+        ],
+        "size": [
+          14.856406460551018,
+          23.196152422706632,
+          13
+        ]
+      },
+      "anchors": {
+        "seed_eject": {
+          "node": "anchor_seed_eject",
+          "position": [
+            0,
+            23.196152422706632,
+            0
+          ]
+        },
+        "food_intake": {
+          "node": "anchor_food_intake",
+          "position": [
+            0,
+            8.196152422706632,
+            0
+          ]
+        },
+        "pikmin_entry": {
+          "node": "anchor_pikmin_entry",
+          "position": [
+            0,
+            -0.803847577293368,
+            -7
+          ]
+        },
+        "pikmin_exit": {
+          "node": "anchor_pikmin_exit",
+          "position": [
+            0,
+            -0.803847577293368,
+            -8
+          ]
+        },
+        "merge_target": {
+          "node": "anchor_merge_target",
+          "position": [
+            0,
+            14.196152422706632,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Activate",
+          "length": 2.5,
+          "loop": false
+        },
+        {
+          "name": "SeedSpit",
+          "length": 1.6,
+          "loop": false
+        },
+        {
+          "name": "ReceiveFood",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Withdraw",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Return",
+          "length": 1.8,
+          "loop": false
+        },
+        {
+          "name": "Merge",
+          "length": 2.2,
+          "loop": false
+        },
+        {
+          "name": "Takeoff",
+          "length": 3,
+          "loop": false
+        },
+        {
+          "name": "Land",
+          "length": 3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Activate": [
+          {
+            "time": 0.5,
+            "event": "activation_start",
+            "anchor": "merge_target"
+          },
+          {
+            "time": 2.25,
+            "event": "base_ready",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "SeedSpit": [
+          {
+            "time": 0.672,
+            "event": "emit_seed",
+            "anchor": "seed_eject",
+            "velocity": [
+              0,
+              12,
+              -5
+            ]
+          }
+        ],
+        "ReceiveFood": [
+          {
+            "time": 0.81,
+            "event": "absorb_food",
+            "anchor": "food_intake"
+          }
+        ],
+        "Withdraw": [
+          {
+            "time": 0.81,
+            "event": "release_pikmin",
+            "anchor": "pikmin_exit"
+          }
+        ],
+        "Return": [
+          {
+            "time": 0.81,
+            "event": "store_pikmin",
+            "anchor": "pikmin_entry"
+          }
+        ],
+        "Merge": [
+          {
+            "time": 1.1,
+            "event": "apply_onion_color",
+            "anchor": "merge_target"
+          }
+        ],
+        "Takeoff": [
+          {
+            "time": 1.35,
+            "event": "onion_airborne",
+            "anchor": "merge_target"
+          }
+        ],
+        "Land": [
+          {
+            "time": 2.7,
+            "event": "onion_touchdown",
+            "anchor": "merge_target"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.0600000000000005,
+          "samples": 769
+        },
+        {
+          "clip": "Activate",
+          "minimum_y": 0.05996345192026259,
+          "samples": 481
+        },
+        {
+          "clip": "SeedSpit",
+          "minimum_y": 0.0600000000000005,
+          "samples": 309
+        },
+        {
+          "clip": "ReceiveFood",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Withdraw",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Return",
+          "minimum_y": 0,
+          "samples": 347
+        },
+        {
+          "clip": "Merge",
+          "minimum_y": 0.0600000000000005,
+          "samples": 425
+        },
+        {
+          "clip": "Takeoff",
+          "minimum_y": 0.05989949595165245,
+          "samples": 577
+        },
+        {
+          "clip": "Land",
+          "minimum_y": 0.059999999761620904,
+          "samples": 577
+        }
+      ],
+      "ground_shift": 0.803847577293368,
+      "textures": [
+        {
+          "name": "merged_onion_atlas.png",
+          "width": 128,
+          "height": 128
+        },
+        {
+          "name": "merged_sector_01_red.png",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "name": "merged_sector_02_yellow.png",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "name": "merged_sector_03_blue.png",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "name": "merged_sector_04_purple.png",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "name": "merged_sector_05_white.png",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "name": "merged_sector_06_rock.png",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "name": "merged_sector_07_winged.png",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "name": "merged_sector_08_ice.png",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "name": "merged_sector_09_glow.png",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "name": "merged_sector_10_shadow.png",
+          "width": 16,
+          "height": 16
+        }
+      ]
+    },
+    {
+      "id": "flarlic_dormant",
+      "family": "flarlic",
+      "state": "dormant",
+      "color": "flarlic",
+      "hex": "#e4dda7",
+      "label": "Flarlic / Dormant",
+      "animation_family": "dormant",
+      "carry_weight": 5,
+      "max_carriers": 10,
+      "capacity_bonus": 10,
+      "unlocks": [],
+      "fan": false,
+      "swap_on_activation": null,
+      "bbmodel": "models/onions/flarlic_dormant.bbmodel",
+      "glb": "models/onions/flarlic_dormant.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 153,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          11,
+          4
+        ],
+        "size": [
+          8,
+          11,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "flarlic_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "increase_capacity",
+            "anchor": "carry_center",
+            "amount": 10,
+            "type": "flarlic"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "flarlic_dormant_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "flarlic_buried",
+      "family": "flarlic",
+      "state": "buried",
+      "color": "flarlic",
+      "hex": "#e4dda7",
+      "label": "Flarlic / Buried",
+      "animation_family": "buried",
+      "carry_weight": 5,
+      "max_carriers": 10,
+      "capacity_bonus": 10,
+      "unlocks": [],
+      "fan": false,
+      "swap_on_activation": null,
+      "bbmodel": "models/onions/flarlic_buried.bbmodel",
+      "glb": "models/onions/flarlic_buried.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 161,
+      "groups": 10,
+      "bounds": {
+        "min": [
+          -6,
+          -4,
+          -6
+        ],
+        "max": [
+          6,
+          7,
+          6
+        ],
+        "size": [
+          12,
+          11,
+          12
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            -1,
+            0
+          ]
+        },
+        "dig_target": {
+          "node": "anchor_dig_target",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "DigShake",
+          "length": 0.7,
+          "loop": true
+        },
+        {
+          "name": "Unearth",
+          "length": 1.4,
+          "loop": false
+        },
+        {
+          "name": "Absorb",
+          "length": 1.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "DigShake": [],
+        "Unearth": [
+          {
+            "time": 1.4,
+            "event": "swap_to_dormant",
+            "anchor": "carry_center",
+            "asset": "flarlic_dormant"
+          }
+        ],
+        "Absorb": [
+          {
+            "time": 1.4,
+            "event": "increase_capacity",
+            "anchor": "carry_center",
+            "amount": 10,
+            "type": "flarlic"
+          }
+        ]
+      },
+      "floor": [],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "flarlic_buried_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "bulborb",
+      "family": "bulborb",
+      "label": "Bulborb",
+      "category": "enemy",
+      "animation_family": "bulborb",
+      "legs": [
+        "left_foot",
+        "right_foot"
+      ],
+      "carry_weight": 10,
+      "max_carriers": 20,
+      "starter_health": 600,
+      "attack_kind": "bite",
+      "small": false,
+      "art_revision": 2,
+      "bbmodel": "models/enemies/bulborb.bbmodel",
+      "glb": "models/enemies/bulborb.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 24,
+      "groups": 11,
+      "bounds": {
+        "min": [
+          -6,
+          0,
+          -9.0649995803833
+        ],
+        "max": [
+          6,
+          16.14553477331433,
+          10
+        ],
+        "size": [
+          12,
+          16.14553477331433,
+          19.0649995803833
+        ]
+      },
+      "anchors": {
+        "bite": {
+          "node": "anchor_bite",
+          "position": [
+            0,
+            6,
+            -10
+          ]
+        },
+        "latch_back": {
+          "node": "anchor_latch_back",
+          "position": [
+            0,
+            13,
+            3
+          ]
+        },
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            1
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "Walk",
+          "length": 1.1,
+          "loop": true
+        },
+        {
+          "name": "Turn",
+          "length": 1.2,
+          "loop": false
+        },
+        {
+          "name": "ShakeOff",
+          "length": 1.1,
+          "loop": false
+        },
+        {
+          "name": "Hurt",
+          "length": 0.75,
+          "loop": false
+        },
+        {
+          "name": "Death",
+          "length": 2,
+          "loop": false
+        },
+        {
+          "name": "Sleep",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Wake",
+          "length": 1.3,
+          "loop": false
+        },
+        {
+          "name": "Bite",
+          "length": 1.3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Walk": [],
+        "Turn": [
+          {
+            "time": 1.2,
+            "event": "turn_complete",
+            "anchor": "carry_center"
+          }
+        ],
+        "ShakeOff": [
+          {
+            "time": 0.352,
+            "event": "detach_attackers",
+            "anchor": "latch_back"
+          }
+        ],
+        "Hurt": [],
+        "Death": [
+          {
+            "time": 1.2,
+            "event": "death_impact",
+            "anchor": "carry_center"
+          },
+          {
+            "time": 2,
+            "event": "corpse_carryable",
+            "anchor": "carry_center"
+          }
+        ],
+        "Sleep": [],
+        "Wake": [
+          {
+            "time": 0.52,
+            "event": "alert",
+            "anchor": "bite"
+          }
+        ],
+        "Bite": [
+          {
+            "time": 0.325,
+            "event": "attack_windup",
+            "anchor": "bite"
+          },
+          {
+            "time": 0.65,
+            "event": "bite_hit",
+            "anchor": "bite",
+            "hit_window": [
+              0.55,
+              0.8
+            ]
+          },
+          {
+            "time": 1.04,
+            "event": "attack_recover",
+            "anchor": "bite"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.059994313213906025,
+          "samples": 577
+        },
+        {
+          "clip": "Walk",
+          "minimum_y": 0.05943336377448627,
+          "samples": 213
+        },
+        {
+          "clip": "Turn",
+          "minimum_y": 0.059651217258701095,
+          "samples": 233
+        },
+        {
+          "clip": "ShakeOff",
+          "minimum_y": 0.0524092073138549,
+          "samples": 213
+        },
+        {
+          "clip": "Hurt",
+          "minimum_y": 0.05735261674654957,
+          "samples": 145
+        },
+        {
+          "clip": "Death",
+          "minimum_y": 0.055809958847733654,
+          "samples": 385
+        },
+        {
+          "clip": "Sleep",
+          "minimum_y": 0.059991946763816806,
+          "samples": 769
+        },
+        {
+          "clip": "Wake",
+          "minimum_y": 0.05999999999999961,
+          "samples": 251
+        },
+        {
+          "clip": "Bite",
+          "minimum_y": 0.058730579594481025,
+          "samples": 251
+        }
+      ],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "bulborb_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "dwarf_bulborb",
+      "family": "bulborb",
+      "label": "Dwarf Bulborb",
+      "category": "enemy",
+      "animation_family": "bulborb",
+      "legs": [
+        "left_foot",
+        "right_foot"
+      ],
+      "carry_weight": 3,
+      "max_carriers": 6,
+      "starter_health": 80,
+      "attack_kind": "bite",
+      "small": true,
+      "art_revision": 2,
+      "bbmodel": "models/enemies/dwarf_bulborb.bbmodel",
+      "glb": "models/enemies/dwarf_bulborb.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 24,
+      "groups": 11,
+      "bounds": {
+        "min": [
+          -3.629441169701636,
+          0,
+          -5.065000057220459
+        ],
+        "max": [
+          3.629441169701636,
+          10.099507798329114,
+          6
+        ],
+        "size": [
+          7.258882339403272,
+          10.099507798329114,
+          11.065000057220459
+        ]
+      },
+      "anchors": {
+        "bite": {
+          "node": "anchor_bite",
+          "position": [
+            0,
+            4,
+            -6
+          ]
+        },
+        "latch_back": {
+          "node": "anchor_latch_back",
+          "position": [
+            0,
+            8,
+            3
+          ]
+        },
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            1
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "Walk",
+          "length": 1.1,
+          "loop": true
+        },
+        {
+          "name": "Turn",
+          "length": 1.2,
+          "loop": false
+        },
+        {
+          "name": "ShakeOff",
+          "length": 1.1,
+          "loop": false
+        },
+        {
+          "name": "Hurt",
+          "length": 0.75,
+          "loop": false
+        },
+        {
+          "name": "Death",
+          "length": 2,
+          "loop": false
+        },
+        {
+          "name": "Sleep",
+          "length": 4,
+          "loop": true
+        },
+        {
+          "name": "Wake",
+          "length": 1.3,
+          "loop": false
+        },
+        {
+          "name": "Bite",
+          "length": 1.3,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Walk": [],
+        "Turn": [
+          {
+            "time": 1.2,
+            "event": "turn_complete",
+            "anchor": "carry_center"
+          }
+        ],
+        "ShakeOff": [
+          {
+            "time": 0.352,
+            "event": "detach_attackers",
+            "anchor": "latch_back"
+          }
+        ],
+        "Hurt": [],
+        "Death": [
+          {
+            "time": 1.2,
+            "event": "death_impact",
+            "anchor": "carry_center"
+          },
+          {
+            "time": 2,
+            "event": "corpse_carryable",
+            "anchor": "carry_center"
+          }
+        ],
+        "Sleep": [],
+        "Wake": [
+          {
+            "time": 0.52,
+            "event": "alert",
+            "anchor": "bite"
+          }
+        ],
+        "Bite": [
+          {
+            "time": 0.325,
+            "event": "attack_windup",
+            "anchor": "bite"
+          },
+          {
+            "time": 0.65,
+            "event": "bite_hit",
+            "anchor": "bite",
+            "hit_window": [
+              0.55,
+              0.8
+            ]
+          },
+          {
+            "time": 1.04,
+            "event": "attack_recover",
+            "anchor": "bite"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.059994313213906025,
+          "samples": 577
+        },
+        {
+          "clip": "Walk",
+          "minimum_y": 0.059470268828236916,
+          "samples": 213
+        },
+        {
+          "clip": "Turn",
+          "minimum_y": 0.059651217258701095,
+          "samples": 233
+        },
+        {
+          "clip": "ShakeOff",
+          "minimum_y": 0.055488115737293064,
+          "samples": 213
+        },
+        {
+          "clip": "Hurt",
+          "minimum_y": 0.058057060012099315,
+          "samples": 145
+        },
+        {
+          "clip": "Death",
+          "minimum_y": 0.056438553531124036,
+          "samples": 385
+        },
+        {
+          "clip": "Sleep",
+          "minimum_y": 0.059991946763816806,
+          "samples": 769
+        },
+        {
+          "clip": "Wake",
+          "minimum_y": 0.05999999999999961,
+          "samples": 251
+        },
+        {
+          "clip": "Bite",
+          "minimum_y": 0.05622837879845588,
+          "samples": 251
+        }
+      ],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "dwarf_bulborb_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "fiery_blowhog",
+      "family": "blowhog",
+      "label": "Fiery Blowhog",
+      "category": "enemy",
+      "animation_family": "blowhog",
+      "legs": [
+        "front_left_foot",
+        "rear_left_foot",
+        "front_right_foot",
+        "rear_right_foot"
+      ],
+      "airborne": false,
+      "element": "fire",
+      "carry_weight": 5,
+      "max_carriers": 10,
+      "starter_health": 350,
+      "attack_kind": "breath",
+      "art_revision": 2,
+      "bbmodel": "models/enemies/fiery_blowhog.bbmodel",
+      "glb": "models/enemies/fiery_blowhog.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 23,
+      "groups": 13,
+      "bounds": {
+        "min": [
+          -5,
+          0,
+          -14.024999618530273
+        ],
+        "max": [
+          5,
+          12,
+          10
+        ],
+        "size": [
+          10,
+          12,
+          24.024999618530273
+        ]
+      },
+      "anchors": {
+        "breath": {
+          "node": "anchor_breath",
+          "position": [
+            0,
+            7,
+            -14.2
+          ]
+        },
+        "latch_back": {
+          "node": "anchor_latch_back",
+          "position": [
+            0,
+            12,
+            3
+          ]
+        },
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            3,
+            2
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "Walk",
+          "length": 1.1,
+          "loop": true
+        },
+        {
+          "name": "Turn",
+          "length": 1.2,
+          "loop": false
+        },
+        {
+          "name": "ShakeOff",
+          "length": 1.1,
+          "loop": false
+        },
+        {
+          "name": "Hurt",
+          "length": 0.75,
+          "loop": false
+        },
+        {
+          "name": "Death",
+          "length": 2,
+          "loop": false
+        },
+        {
+          "name": "Inhale",
+          "length": 1,
+          "loop": false
+        },
+        {
+          "name": "BreathAttack",
+          "length": 2.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Walk": [],
+        "Turn": [
+          {
+            "time": 1.2,
+            "event": "turn_complete",
+            "anchor": "carry_center"
+          }
+        ],
+        "ShakeOff": [
+          {
+            "time": 0.352,
+            "event": "detach_attackers",
+            "anchor": "latch_back"
+          }
+        ],
+        "Hurt": [],
+        "Death": [
+          {
+            "time": 1.2,
+            "event": "death_impact",
+            "anchor": "carry_center"
+          },
+          {
+            "time": 2,
+            "event": "corpse_carryable",
+            "anchor": "carry_center"
+          }
+        ],
+        "Inhale": [
+          {
+            "time": 0.2,
+            "event": "inhale",
+            "anchor": "breath"
+          }
+        ],
+        "BreathAttack": [
+          {
+            "time": 0.432,
+            "event": "breath_start",
+            "anchor": "breath",
+            "element": "fire",
+            "range": 18
+          },
+          {
+            "time": 1.728,
+            "event": "breath_stop",
+            "anchor": "breath"
+          },
+          {
+            "time": 2.04,
+            "event": "attack_recover",
+            "anchor": "breath"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.059994313213906025,
+          "samples": 577
+        },
+        {
+          "clip": "Walk",
+          "minimum_y": 0.05977023505066596,
+          "samples": 213
+        },
+        {
+          "clip": "Turn",
+          "minimum_y": 0.059872524131988514,
+          "samples": 233
+        },
+        {
+          "clip": "ShakeOff",
+          "minimum_y": 0.053762243804246435,
+          "samples": 213
+        },
+        {
+          "clip": "Hurt",
+          "minimum_y": 0.05512992887810286,
+          "samples": 145
+        },
+        {
+          "clip": "Death",
+          "minimum_y": 0.05650829945644453,
+          "samples": 385
+        },
+        {
+          "clip": "Inhale",
+          "minimum_y": 0.05997679378774201,
+          "samples": 193
+        },
+        {
+          "clip": "BreathAttack",
+          "minimum_y": 0.05990005848081825,
+          "samples": 463
+        }
+      ],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "fiery_blowhog_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "watery_blowhog",
+      "family": "blowhog",
+      "label": "Watery Blowhog",
+      "category": "enemy",
+      "animation_family": "blowhog",
+      "legs": [
+        "front_left_foot",
+        "rear_left_foot",
+        "front_right_foot",
+        "rear_right_foot"
+      ],
+      "airborne": false,
+      "element": "water",
+      "carry_weight": 5,
+      "max_carriers": 10,
+      "starter_health": 350,
+      "attack_kind": "breath",
+      "art_revision": 2,
+      "bbmodel": "models/enemies/watery_blowhog.bbmodel",
+      "glb": "models/enemies/watery_blowhog.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 23,
+      "groups": 13,
+      "bounds": {
+        "min": [
+          -5,
+          0,
+          -14.024999618530273
+        ],
+        "max": [
+          5,
+          12,
+          10
+        ],
+        "size": [
+          10,
+          12,
+          24.024999618530273
+        ]
+      },
+      "anchors": {
+        "breath": {
+          "node": "anchor_breath",
+          "position": [
+            0,
+            7,
+            -14.2
+          ]
+        },
+        "latch_back": {
+          "node": "anchor_latch_back",
+          "position": [
+            0,
+            12,
+            3
+          ]
+        },
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            3,
+            2
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "Walk",
+          "length": 1.1,
+          "loop": true
+        },
+        {
+          "name": "Turn",
+          "length": 1.2,
+          "loop": false
+        },
+        {
+          "name": "ShakeOff",
+          "length": 1.1,
+          "loop": false
+        },
+        {
+          "name": "Hurt",
+          "length": 0.75,
+          "loop": false
+        },
+        {
+          "name": "Death",
+          "length": 2,
+          "loop": false
+        },
+        {
+          "name": "Inhale",
+          "length": 1,
+          "loop": false
+        },
+        {
+          "name": "BreathAttack",
+          "length": 2.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Walk": [],
+        "Turn": [
+          {
+            "time": 1.2,
+            "event": "turn_complete",
+            "anchor": "carry_center"
+          }
+        ],
+        "ShakeOff": [
+          {
+            "time": 0.352,
+            "event": "detach_attackers",
+            "anchor": "latch_back"
+          }
+        ],
+        "Hurt": [],
+        "Death": [
+          {
+            "time": 1.2,
+            "event": "death_impact",
+            "anchor": "carry_center"
+          },
+          {
+            "time": 2,
+            "event": "corpse_carryable",
+            "anchor": "carry_center"
+          }
+        ],
+        "Inhale": [
+          {
+            "time": 0.2,
+            "event": "inhale",
+            "anchor": "breath"
+          }
+        ],
+        "BreathAttack": [
+          {
+            "time": 0.432,
+            "event": "breath_start",
+            "anchor": "breath",
+            "element": "water",
+            "range": 18
+          },
+          {
+            "time": 1.728,
+            "event": "breath_stop",
+            "anchor": "breath"
+          },
+          {
+            "time": 2.04,
+            "event": "attack_recover",
+            "anchor": "breath"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.059994313213906025,
+          "samples": 577
+        },
+        {
+          "clip": "Walk",
+          "minimum_y": 0.05977023505066596,
+          "samples": 213
+        },
+        {
+          "clip": "Turn",
+          "minimum_y": 0.059872524131988514,
+          "samples": 233
+        },
+        {
+          "clip": "ShakeOff",
+          "minimum_y": 0.053762243804246435,
+          "samples": 213
+        },
+        {
+          "clip": "Hurt",
+          "minimum_y": 0.05512992887810286,
+          "samples": 145
+        },
+        {
+          "clip": "Death",
+          "minimum_y": 0.05650829945644453,
+          "samples": 385
+        },
+        {
+          "clip": "Inhale",
+          "minimum_y": 0.05997679378774201,
+          "samples": 193
+        },
+        {
+          "clip": "BreathAttack",
+          "minimum_y": 0.05990005848081825,
+          "samples": 463
+        }
+      ],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "watery_blowhog_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "snowy_blowhog",
+      "family": "blowhog",
+      "label": "Snowy Blowhog",
+      "category": "enemy",
+      "animation_family": "blowhog",
+      "legs": [
+        "front_left_foot",
+        "rear_left_foot",
+        "front_right_foot",
+        "rear_right_foot"
+      ],
+      "airborne": false,
+      "element": "ice",
+      "carry_weight": 5,
+      "max_carriers": 10,
+      "starter_health": 350,
+      "attack_kind": "breath",
+      "art_revision": 2,
+      "bbmodel": "models/enemies/snowy_blowhog.bbmodel",
+      "glb": "models/enemies/snowy_blowhog.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 26,
+      "groups": 13,
+      "bounds": {
+        "min": [
+          -5,
+          0,
+          -14.024999618530273
+        ],
+        "max": [
+          5,
+          14,
+          10
+        ],
+        "size": [
+          10,
+          14,
+          24.024999618530273
+        ]
+      },
+      "anchors": {
+        "breath": {
+          "node": "anchor_breath",
+          "position": [
+            0,
+            7,
+            -14.2
+          ]
+        },
+        "latch_back": {
+          "node": "anchor_latch_back",
+          "position": [
+            0,
+            12,
+            3
+          ]
+        },
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            3,
+            2
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "Walk",
+          "length": 1.1,
+          "loop": true
+        },
+        {
+          "name": "Turn",
+          "length": 1.2,
+          "loop": false
+        },
+        {
+          "name": "ShakeOff",
+          "length": 1.1,
+          "loop": false
+        },
+        {
+          "name": "Hurt",
+          "length": 0.75,
+          "loop": false
+        },
+        {
+          "name": "Death",
+          "length": 2,
+          "loop": false
+        },
+        {
+          "name": "Inhale",
+          "length": 1,
+          "loop": false
+        },
+        {
+          "name": "BreathAttack",
+          "length": 2.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Walk": [],
+        "Turn": [
+          {
+            "time": 1.2,
+            "event": "turn_complete",
+            "anchor": "carry_center"
+          }
+        ],
+        "ShakeOff": [
+          {
+            "time": 0.352,
+            "event": "detach_attackers",
+            "anchor": "latch_back"
+          }
+        ],
+        "Hurt": [],
+        "Death": [
+          {
+            "time": 1.2,
+            "event": "death_impact",
+            "anchor": "carry_center"
+          },
+          {
+            "time": 2,
+            "event": "corpse_carryable",
+            "anchor": "carry_center"
+          }
+        ],
+        "Inhale": [
+          {
+            "time": 0.2,
+            "event": "inhale",
+            "anchor": "breath"
+          }
+        ],
+        "BreathAttack": [
+          {
+            "time": 0.432,
+            "event": "breath_start",
+            "anchor": "breath",
+            "element": "ice",
+            "range": 18
+          },
+          {
+            "time": 1.728,
+            "event": "breath_stop",
+            "anchor": "breath"
+          },
+          {
+            "time": 2.04,
+            "event": "attack_recover",
+            "anchor": "breath"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.059994313213906025,
+          "samples": 577
+        },
+        {
+          "clip": "Walk",
+          "minimum_y": 0.05977023505066596,
+          "samples": 213
+        },
+        {
+          "clip": "Turn",
+          "minimum_y": 0.059872524131988514,
+          "samples": 233
+        },
+        {
+          "clip": "ShakeOff",
+          "minimum_y": 0.053762243804246435,
+          "samples": 213
+        },
+        {
+          "clip": "Hurt",
+          "minimum_y": 0.05512992887810286,
+          "samples": 145
+        },
+        {
+          "clip": "Death",
+          "minimum_y": 0.05650829945644453,
+          "samples": 385
+        },
+        {
+          "clip": "Inhale",
+          "minimum_y": 0.05997679378774201,
+          "samples": 193
+        },
+        {
+          "clip": "BreathAttack",
+          "minimum_y": 0.05990005848081825,
+          "samples": 463
+        }
+      ],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "snowy_blowhog_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "icy_blowhog",
+      "family": "balloon",
+      "label": "Icy Blowhog",
+      "category": "enemy",
+      "animation_family": "balloon",
+      "legs": [],
+      "airborne": true,
+      "element": "ice",
+      "carry_weight": 7,
+      "max_carriers": 14,
+      "starter_health": 450,
+      "attack_kind": "breath",
+      "art_revision": 2,
+      "bbmodel": "models/enemies/icy_blowhog.bbmodel",
+      "glb": "models/enemies/icy_blowhog.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 32,
+      "groups": 17,
+      "bounds": {
+        "min": [
+          -7.425610228230436,
+          5.916657988316938,
+          -14.024999618530273
+        ],
+        "max": [
+          7.425610228230436,
+          23.75911264158551,
+          13
+        ],
+        "size": [
+          14.851220456460872,
+          17.84245465326857,
+          27.024999618530273
+        ]
+      },
+      "anchors": {
+        "breath": {
+          "node": "anchor_breath",
+          "position": [
+            0,
+            15,
+            -14.2
+          ]
+        },
+        "latch_back": {
+          "node": "anchor_latch_back",
+          "position": [
+            0,
+            22,
+            3
+          ]
+        },
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            3,
+            2
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "Fly",
+          "length": 1.1,
+          "loop": true
+        },
+        {
+          "name": "Turn",
+          "length": 1.2,
+          "loop": false
+        },
+        {
+          "name": "ShakeOff",
+          "length": 1.1,
+          "loop": false
+        },
+        {
+          "name": "Hurt",
+          "length": 0.75,
+          "loop": false
+        },
+        {
+          "name": "Death",
+          "length": 2,
+          "loop": false
+        },
+        {
+          "name": "Inhale",
+          "length": 1,
+          "loop": false
+        },
+        {
+          "name": "BreathAttack",
+          "length": 2.4,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Fly": [],
+        "Turn": [
+          {
+            "time": 1.2,
+            "event": "turn_complete",
+            "anchor": "carry_center"
+          }
+        ],
+        "ShakeOff": [
+          {
+            "time": 0.352,
+            "event": "detach_attackers",
+            "anchor": "latch_back"
+          }
+        ],
+        "Hurt": [],
+        "Death": [
+          {
+            "time": 1.2,
+            "event": "death_impact",
+            "anchor": "carry_center"
+          },
+          {
+            "time": 2,
+            "event": "corpse_carryable",
+            "anchor": "carry_center"
+          }
+        ],
+        "Inhale": [
+          {
+            "time": 0.2,
+            "event": "inhale",
+            "anchor": "breath"
+          }
+        ],
+        "BreathAttack": [
+          {
+            "time": 0.432,
+            "event": "breath_start",
+            "anchor": "breath",
+            "element": "ice",
+            "range": 18
+          },
+          {
+            "time": 1.728,
+            "event": "breath_stop",
+            "anchor": "breath"
+          },
+          {
+            "time": 2.04,
+            "event": "attack_recover",
+            "anchor": "breath"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 5.875884930083793,
+          "samples": 577
+        },
+        {
+          "clip": "Fly",
+          "minimum_y": 5.824169997815989,
+          "samples": 213
+        },
+        {
+          "clip": "Turn",
+          "minimum_y": 5.916657988316938,
+          "samples": 233
+        },
+        {
+          "clip": "ShakeOff",
+          "minimum_y": 4.8583999242997224,
+          "samples": 213
+        },
+        {
+          "clip": "Hurt",
+          "minimum_y": 5.154192802824823,
+          "samples": 145
+        },
+        {
+          "clip": "Death",
+          "minimum_y": 0.052875076983337266,
+          "samples": 385
+        },
+        {
+          "clip": "Inhale",
+          "minimum_y": 5.916657988316938,
+          "samples": 193
+        },
+        {
+          "clip": "BreathAttack",
+          "minimum_y": 5.910732109191004,
+          "samples": 463
+        }
+      ],
+      "ground_shift": null,
+      "textures": [
+        {
+          "name": "icy_blowhog_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "wollyhop",
+      "family": "wollyhop",
+      "label": "Wollyhop",
+      "category": "enemy",
+      "animation_family": "wollyhop",
+      "legs": [
+        "left_hind",
+        "left_fore",
+        "right_hind",
+        "right_fore"
+      ],
+      "element": null,
+      "carry_weight": 7,
+      "max_carriers": 14,
+      "starter_health": 500,
+      "attack_kind": "jump_slam",
+      "art_revision": 2,
+      "bbmodel": "models/enemies/wollyhop.bbmodel",
+      "glb": "models/enemies/wollyhop.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 20,
+      "groups": 12,
+      "bounds": {
+        "min": [
+          -7.995853655556408,
+          0,
+          -7.025000095367432
+        ],
+        "max": [
+          7.995853655556408,
+          14,
+          7
+        ],
+        "size": [
+          15.991707311112815,
+          14,
+          14.025000095367432
+        ]
+      },
+      "anchors": {
+        "slam": {
+          "node": "anchor_slam",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        },
+        "latch_back": {
+          "node": "anchor_latch_back",
+          "position": [
+            0,
+            14,
+            2
+          ]
+        },
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            3,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "Walk",
+          "length": 1.4,
+          "loop": true
+        },
+        {
+          "name": "Turn",
+          "length": 1.2,
+          "loop": false
+        },
+        {
+          "name": "ShakeOff",
+          "length": 1.1,
+          "loop": false
+        },
+        {
+          "name": "Hurt",
+          "length": 0.75,
+          "loop": false
+        },
+        {
+          "name": "Death",
+          "length": 2,
+          "loop": false
+        },
+        {
+          "name": "HopAttack",
+          "length": 2,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Walk": [],
+        "Turn": [
+          {
+            "time": 1.2,
+            "event": "turn_complete",
+            "anchor": "carry_center"
+          }
+        ],
+        "ShakeOff": [
+          {
+            "time": 0.352,
+            "event": "detach_attackers",
+            "anchor": "latch_back"
+          }
+        ],
+        "Hurt": [],
+        "Death": [
+          {
+            "time": 1.2,
+            "event": "death_impact",
+            "anchor": "carry_center"
+          },
+          {
+            "time": 2,
+            "event": "corpse_carryable",
+            "anchor": "carry_center"
+          }
+        ],
+        "HopAttack": [
+          {
+            "time": 0.24,
+            "event": "jump_windup",
+            "anchor": "slam"
+          },
+          {
+            "time": 1.52,
+            "event": "slam_hit",
+            "anchor": "slam",
+            "radius": 7,
+            "element": null,
+            "hit_window": [
+              1.47,
+              1.64
+            ]
+          },
+          {
+            "time": 1.7,
+            "event": "attack_recover",
+            "anchor": "slam"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.059994313213906025,
+          "samples": 577
+        },
+        {
+          "clip": "Walk",
+          "minimum_y": 0.059540563811272484,
+          "samples": 271
+        },
+        {
+          "clip": "Turn",
+          "minimum_y": 0.05941869526450144,
+          "samples": 233
+        },
+        {
+          "clip": "ShakeOff",
+          "minimum_y": 0.046247613354979844,
+          "samples": 213
+        },
+        {
+          "clip": "Hurt",
+          "minimum_y": 0.053768982506618546,
+          "samples": 145
+        },
+        {
+          "clip": "Death",
+          "minimum_y": 0.05723378546864044,
+          "samples": 385
+        },
+        {
+          "clip": "HopAttack",
+          "minimum_y": 0.05821210290938428,
+          "samples": 385
+        }
+      ],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "wollyhop_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "yellow_wollyhop",
+      "family": "wollyhop",
+      "label": "Yellow Wollyhop",
+      "category": "enemy",
+      "animation_family": "wollyhop",
+      "legs": [
+        "left_hind",
+        "left_fore",
+        "right_hind",
+        "right_fore"
+      ],
+      "element": null,
+      "carry_weight": 7,
+      "max_carriers": 14,
+      "starter_health": 500,
+      "attack_kind": "jump_slam",
+      "art_revision": 2,
+      "bbmodel": "models/enemies/yellow_wollyhop.bbmodel",
+      "glb": "models/enemies/yellow_wollyhop.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 20,
+      "groups": 12,
+      "bounds": {
+        "min": [
+          -7.995853655556408,
+          0,
+          -7.025000095367432
+        ],
+        "max": [
+          7.995853655556408,
+          14,
+          7
+        ],
+        "size": [
+          15.991707311112815,
+          14,
+          14.025000095367432
+        ]
+      },
+      "anchors": {
+        "slam": {
+          "node": "anchor_slam",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        },
+        "latch_back": {
+          "node": "anchor_latch_back",
+          "position": [
+            0,
+            14,
+            2
+          ]
+        },
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            3,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "Walk",
+          "length": 1.4,
+          "loop": true
+        },
+        {
+          "name": "Turn",
+          "length": 1.2,
+          "loop": false
+        },
+        {
+          "name": "ShakeOff",
+          "length": 1.1,
+          "loop": false
+        },
+        {
+          "name": "Hurt",
+          "length": 0.75,
+          "loop": false
+        },
+        {
+          "name": "Death",
+          "length": 2,
+          "loop": false
+        },
+        {
+          "name": "HopAttack",
+          "length": 2,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Walk": [],
+        "Turn": [
+          {
+            "time": 1.2,
+            "event": "turn_complete",
+            "anchor": "carry_center"
+          }
+        ],
+        "ShakeOff": [
+          {
+            "time": 0.352,
+            "event": "detach_attackers",
+            "anchor": "latch_back"
+          }
+        ],
+        "Hurt": [],
+        "Death": [
+          {
+            "time": 1.2,
+            "event": "death_impact",
+            "anchor": "carry_center"
+          },
+          {
+            "time": 2,
+            "event": "corpse_carryable",
+            "anchor": "carry_center"
+          }
+        ],
+        "HopAttack": [
+          {
+            "time": 0.24,
+            "event": "jump_windup",
+            "anchor": "slam"
+          },
+          {
+            "time": 1.52,
+            "event": "slam_hit",
+            "anchor": "slam",
+            "radius": 7,
+            "element": null,
+            "hit_window": [
+              1.47,
+              1.64
+            ]
+          },
+          {
+            "time": 1.7,
+            "event": "attack_recover",
+            "anchor": "slam"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.059994313213906025,
+          "samples": 577
+        },
+        {
+          "clip": "Walk",
+          "minimum_y": 0.059540563811272484,
+          "samples": 271
+        },
+        {
+          "clip": "Turn",
+          "minimum_y": 0.05941869526450144,
+          "samples": 233
+        },
+        {
+          "clip": "ShakeOff",
+          "minimum_y": 0.046247613354979844,
+          "samples": 213
+        },
+        {
+          "clip": "Hurt",
+          "minimum_y": 0.053768982506618546,
+          "samples": 145
+        },
+        {
+          "clip": "Death",
+          "minimum_y": 0.05723378546864044,
+          "samples": 385
+        },
+        {
+          "clip": "HopAttack",
+          "minimum_y": 0.05821210290938428,
+          "samples": 385
+        }
+      ],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "yellow_wollyhop_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "chillyhop",
+      "family": "wollyhop",
+      "label": "Chillyhop",
+      "category": "enemy",
+      "animation_family": "wollyhop",
+      "legs": [
+        "left_hind",
+        "left_fore",
+        "right_hind",
+        "right_fore"
+      ],
+      "element": "ice",
+      "carry_weight": 7,
+      "max_carriers": 14,
+      "starter_health": 500,
+      "attack_kind": "jump_slam",
+      "art_revision": 2,
+      "bbmodel": "models/enemies/chillyhop.bbmodel",
+      "glb": "models/enemies/chillyhop.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 23,
+      "groups": 12,
+      "bounds": {
+        "min": [
+          -7.995853655556408,
+          0,
+          -7.025000095367432
+        ],
+        "max": [
+          7.995853655556408,
+          15,
+          7
+        ],
+        "size": [
+          15.991707311112815,
+          15,
+          14.025000095367432
+        ]
+      },
+      "anchors": {
+        "slam": {
+          "node": "anchor_slam",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        },
+        "latch_back": {
+          "node": "anchor_latch_back",
+          "position": [
+            0,
+            14,
+            2
+          ]
+        },
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            3,
+            0
+          ]
+        }
+      },
+      "animations": [
+        {
+          "name": "Idle",
+          "length": 3,
+          "loop": true
+        },
+        {
+          "name": "Walk",
+          "length": 1.4,
+          "loop": true
+        },
+        {
+          "name": "Turn",
+          "length": 1.2,
+          "loop": false
+        },
+        {
+          "name": "ShakeOff",
+          "length": 1.1,
+          "loop": false
+        },
+        {
+          "name": "Hurt",
+          "length": 0.75,
+          "loop": false
+        },
+        {
+          "name": "Death",
+          "length": 2,
+          "loop": false
+        },
+        {
+          "name": "HopAttack",
+          "length": 2,
+          "loop": false
+        }
+      ],
+      "events": {
+        "Idle": [],
+        "Walk": [],
+        "Turn": [
+          {
+            "time": 1.2,
+            "event": "turn_complete",
+            "anchor": "carry_center"
+          }
+        ],
+        "ShakeOff": [
+          {
+            "time": 0.352,
+            "event": "detach_attackers",
+            "anchor": "latch_back"
+          }
+        ],
+        "Hurt": [],
+        "Death": [
+          {
+            "time": 1.2,
+            "event": "death_impact",
+            "anchor": "carry_center"
+          },
+          {
+            "time": 2,
+            "event": "corpse_carryable",
+            "anchor": "carry_center"
+          }
+        ],
+        "HopAttack": [
+          {
+            "time": 0.24,
+            "event": "jump_windup",
+            "anchor": "slam"
+          },
+          {
+            "time": 1.52,
+            "event": "slam_hit",
+            "anchor": "slam",
+            "radius": 7,
+            "element": "ice",
+            "hit_window": [
+              1.47,
+              1.64
+            ]
+          },
+          {
+            "time": 1.7,
+            "event": "attack_recover",
+            "anchor": "slam"
+          }
+        ]
+      },
+      "floor": [
+        {
+          "clip": "Idle",
+          "minimum_y": 0.059994313213906025,
+          "samples": 577
+        },
+        {
+          "clip": "Walk",
+          "minimum_y": 0.059540563811272484,
+          "samples": 271
+        },
+        {
+          "clip": "Turn",
+          "minimum_y": 0.05941869526450144,
+          "samples": 233
+        },
+        {
+          "clip": "ShakeOff",
+          "minimum_y": 0.046247613354979844,
+          "samples": 213
+        },
+        {
+          "clip": "Hurt",
+          "minimum_y": 0.053768982506618546,
+          "samples": 145
+        },
+        {
+          "clip": "Death",
+          "minimum_y": 0.05723378546864044,
+          "samples": 385
+        },
+        {
+          "clip": "HopAttack",
+          "minimum_y": 0.05821210290938428,
+          "samples": 385
+        }
+      ],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "chillyhop_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "rubber_duck",
+      "family": "prop",
+      "label": "Rubber Duck",
+      "category": "treasure",
+      "animation_family": null,
+      "carry_weight": 10,
+      "max_carriers": 20,
+      "art_revision": 2,
+      "bbmodel": "models/treasures/rubber_duck.bbmodel",
+      "glb": "models/treasures/rubber_duck.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 13,
+      "groups": 7,
+      "bounds": {
+        "min": [
+          -6.601789410951791,
+          0,
+          -10
+        ],
+        "max": [
+          6.601789410951791,
+          16,
+          11.161098005683394
+        ],
+        "size": [
+          13.203578821903582,
+          16,
+          21.161098005683392
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        }
+      },
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "rubber_duck_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "strawberry",
+      "family": "prop",
+      "label": "Strawberry",
+      "category": "treasure",
+      "animation_family": null,
+      "carry_weight": 3,
+      "max_carriers": 6,
+      "art_revision": 2,
+      "bbmodel": "models/treasures/strawberry.bbmodel",
+      "glb": "models/treasures/strawberry.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 13,
+      "groups": 8,
+      "bounds": {
+        "min": [
+          -4,
+          0,
+          -4
+        ],
+        "max": [
+          4,
+          12,
+          4
+        ],
+        "size": [
+          8,
+          12,
+          8
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        }
+      },
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "strawberry_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "watermelon",
+      "family": "prop",
+      "label": "Watermelon",
+      "category": "treasure",
+      "animation_family": null,
+      "carry_weight": 40,
+      "max_carriers": 80,
+      "art_revision": 2,
+      "scale_note": "80 units wide, 67 tall including stem; strawberry is 12 tall; every texture texel spans one unit.",
+      "bbmodel": "models/treasures/watermelon.bbmodel",
+      "glb": "models/treasures/watermelon.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 7,
+      "groups": 3,
+      "bounds": {
+        "min": [
+          -40,
+          0,
+          -32
+        ],
+        "max": [
+          40,
+          67,
+          32
+        ],
+        "size": [
+          80,
+          67,
+          64
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            25,
+            0
+          ]
+        }
+      },
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "watermelon_atlas.png",
+          "width": 512,
+          "height": 512
+        }
+      ]
+    },
+    {
+      "id": "binoculars",
+      "family": "prop",
+      "label": "Binoculars",
+      "category": "treasure",
+      "animation_family": null,
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "art_revision": 2,
+      "bbmodel": "models/treasures/binoculars.bbmodel",
+      "glb": "models/treasures/binoculars.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 23,
+      "groups": 6,
+      "bounds": {
+        "min": [
+          -17,
+          0,
+          -12.024999618530273
+        ],
+        "max": [
+          17,
+          12,
+          24
+        ],
+        "size": [
+          34,
+          12,
+          36.02499961853027
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        }
+      },
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "binoculars_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "gold_nugget",
+      "family": "prop",
+      "label": "Gold Nugget",
+      "category": "treasure",
+      "animation_family": null,
+      "carry_weight": 1,
+      "max_carriers": 1,
+      "art_revision": 2,
+      "bbmodel": "models/treasures/gold_nugget.bbmodel",
+      "glb": "models/treasures/gold_nugget.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 3,
+      "groups": 3,
+      "bounds": {
+        "min": [
+          -1.1294411697016358,
+          -1.1102230246251565e-16,
+          -1
+        ],
+        "max": [
+          1.980536137483141,
+          3.249150408144842,
+          1
+        ],
+        "size": [
+          3.109977307184777,
+          3.249150408144842,
+          2
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2.2686142706617014,
+            0
+          ]
+        }
+      },
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": -0.26861427066170124,
+      "textures": [
+        {
+          "name": "gold_nugget_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "gold_pile",
+      "family": "prop",
+      "label": "Gold Nugget Pile",
+      "category": "treasure",
+      "animation_family": null,
+      "art_revision": 2,
+      "pile": {
+        "piece_asset": "gold_nugget",
+        "capacity": 16,
+        "nodes": [
+          "piece_00",
+          "piece_01",
+          "piece_02",
+          "piece_03",
+          "piece_04",
+          "piece_05",
+          "piece_06",
+          "piece_07",
+          "piece_08",
+          "piece_09",
+          "piece_10",
+          "piece_11",
+          "piece_12",
+          "piece_13",
+          "piece_14",
+          "piece_15"
+        ]
+      },
+      "bbmodel": "models/treasures/gold_pile.bbmodel",
+      "glb": "models/treasures/gold_pile.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 48,
+      "groups": 33,
+      "bounds": {
+        "min": [
+          -6.129441169701637,
+          1.1102230246251565e-16,
+          -5.980536137483141
+        ],
+        "max": [
+          6,
+          6.249150408144843,
+          5.980536137483141
+        ],
+        "size": [
+          12.129441169701636,
+          6.249150408144843,
+          11.961072274966282
+        ]
+      },
+      "anchors": {},
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": -0.26861427066170135,
+      "textures": [
+        {
+          "name": "gold_pile_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "bridge_fragment",
+      "family": "prop",
+      "label": "Bridge Fragment",
+      "category": "construction",
+      "animation_family": null,
+      "carry_weight": 1,
+      "max_carriers": 1,
+      "art_revision": 2,
+      "bbmodel": "models/construction/bridge_fragment.bbmodel",
+      "glb": "models/construction/bridge_fragment.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 1,
+      "groups": 2,
+      "bounds": {
+        "min": [
+          -1,
+          0,
+          -1.5
+        ],
+        "max": [
+          1,
+          1,
+          1.5
+        ],
+        "size": [
+          2,
+          1,
+          3
+        ]
+      },
+      "anchors": {
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        }
+      },
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "bridge_fragment_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "bridge_fragment_pile",
+      "family": "prop",
+      "label": "Bridge Material Pile",
+      "category": "construction",
+      "animation_family": null,
+      "art_revision": 2,
+      "pile": {
+        "piece_asset": "bridge_fragment",
+        "capacity": 24,
+        "nodes": [
+          "piece_00",
+          "piece_01",
+          "piece_02",
+          "piece_03",
+          "piece_04",
+          "piece_05",
+          "piece_06",
+          "piece_07",
+          "piece_08",
+          "piece_09",
+          "piece_10",
+          "piece_11",
+          "piece_12",
+          "piece_13",
+          "piece_14",
+          "piece_15",
+          "piece_16",
+          "piece_17",
+          "piece_18",
+          "piece_19",
+          "piece_20",
+          "piece_21",
+          "piece_22",
+          "piece_23"
+        ]
+      },
+      "bbmodel": "models/construction/bridge_fragment_pile.bbmodel",
+      "glb": "models/construction/bridge_fragment_pile.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 24,
+      "groups": 25,
+      "bounds": {
+        "min": [
+          -4.375,
+          0,
+          -4.75
+        ],
+        "max": [
+          4.375,
+          2,
+          4.75
+        ],
+        "size": [
+          8.75,
+          2,
+          9.5
+        ]
+      },
+      "anchors": {},
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "bridge_fragment_pile_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "bridge_section",
+      "family": "prop",
+      "label": "Bridge Section",
+      "category": "construction",
+      "animation_family": null,
+      "art_revision": 2,
+      "construction": {
+        "piece_asset": "bridge_fragment",
+        "cost": 12,
+        "nodes": [
+          "build_tile_00",
+          "build_tile_01",
+          "build_tile_02",
+          "build_tile_03",
+          "build_tile_04",
+          "build_tile_05",
+          "build_tile_06",
+          "build_tile_07",
+          "build_tile_08",
+          "build_tile_09",
+          "build_tile_10",
+          "build_tile_11"
+        ]
+      },
+      "bbmodel": "models/construction/bridge_section.bbmodel",
+      "glb": "models/construction/bridge_section.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 14,
+      "groups": 13,
+      "bounds": {
+        "min": [
+          -6,
+          0,
+          -3
+        ],
+        "max": [
+          6,
+          2,
+          3
+        ],
+        "size": [
+          12,
+          2,
+          6
+        ]
+      },
+      "anchors": {},
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "bridge_section_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "bridge_complete",
+      "family": "prop",
+      "label": "Completed Bridge",
+      "category": "construction",
+      "animation_family": null,
+      "art_revision": 2,
+      "construction": {
+        "piece_asset": "bridge_fragment",
+        "cost": 48,
+        "nodes": [
+          "build_tile_00",
+          "build_tile_01",
+          "build_tile_02",
+          "build_tile_03",
+          "build_tile_04",
+          "build_tile_05",
+          "build_tile_06",
+          "build_tile_07",
+          "build_tile_08",
+          "build_tile_09",
+          "build_tile_10",
+          "build_tile_11",
+          "build_tile_12",
+          "build_tile_13",
+          "build_tile_14",
+          "build_tile_15",
+          "build_tile_16",
+          "build_tile_17",
+          "build_tile_18",
+          "build_tile_19",
+          "build_tile_20",
+          "build_tile_21",
+          "build_tile_22",
+          "build_tile_23",
+          "build_tile_24",
+          "build_tile_25",
+          "build_tile_26",
+          "build_tile_27",
+          "build_tile_28",
+          "build_tile_29",
+          "build_tile_30",
+          "build_tile_31",
+          "build_tile_32",
+          "build_tile_33",
+          "build_tile_34",
+          "build_tile_35",
+          "build_tile_36",
+          "build_tile_37",
+          "build_tile_38",
+          "build_tile_39",
+          "build_tile_40",
+          "build_tile_41",
+          "build_tile_42",
+          "build_tile_43",
+          "build_tile_44",
+          "build_tile_45",
+          "build_tile_46",
+          "build_tile_47"
+        ]
+      },
+      "bbmodel": "models/construction/bridge_complete.bbmodel",
+      "glb": "models/construction/bridge_complete.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 50,
+      "groups": 49,
+      "bounds": {
+        "min": [
+          -6,
+          0,
+          -12
+        ],
+        "max": [
+          6,
+          2,
+          12
+        ],
+        "size": [
+          12,
+          2,
+          24
+        ]
+      },
+      "anchors": {},
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "bridge_complete_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    {
+      "id": "main_engine",
+      "family": "prop",
+      "label": "Main Engine",
+      "category": "treasure",
+      "animation_family": null,
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "ship_part": "main_engine",
+      "install_rotation": [
+        180,
+        0,
+        0
+      ],
+      "bbmodel": "models/treasures/main_engine.bbmodel",
+      "glb": "models/treasures/main_engine.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 26,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -7.615853198431714,
+          -4.440892098500626e-16,
+          -6.965811223885767
+        ],
+        "max": [
+          7.615853198431714,
+          8.729626212385647,
+          7.520402399145771
+        ],
+        "size": [
+          15.231706396863428,
+          8.729626212385647,
+          14.486213623031539
+        ]
+      },
+      "anchors": {
+        "install_pivot": {
+          "node": "anchor_install_pivot",
+          "position": [
+            0,
+            5.348325144517497,
+            0
+          ]
+        },
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            4.348325144517497,
+            0
+          ]
+        }
+      },
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": -2.3483251445174966,
+      "textures": [
+        {
+          "name": "main_engine_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ],
+      "export_structure": "rigid_node_hierarchy"
+    },
+    {
+      "id": "analog_computer",
+      "family": "prop",
+      "label": "Analog Computer",
+      "category": "treasure",
+      "animation_family": null,
+      "carry_weight": 20,
+      "max_carriers": 40,
+      "ship_part": "analog_computer",
+      "bbmodel": "models/treasures/analog_computer.bbmodel",
+      "glb": "models/treasures/analog_computer.glb",
+      "texture_pixels_per_unit": 1,
+      "geometry_elements": 17,
+      "groups": 9,
+      "bounds": {
+        "min": [
+          -5,
+          0,
+          -4
+        ],
+        "max": [
+          5,
+          11.914213562373096,
+          4
+        ],
+        "size": [
+          10,
+          11.914213562373096,
+          8
+        ]
+      },
+      "anchors": {
+        "install_pivot": {
+          "node": "anchor_install_pivot",
+          "position": [
+            0,
+            1,
+            0
+          ]
+        },
+        "carry_center": {
+          "node": "anchor_carry_center",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        }
+      },
+      "animations": [],
+      "events": {},
+      "floor": [],
+      "ground_shift": 0,
+      "textures": [
+        {
+          "name": "analog_computer_atlas.png",
+          "width": 128,
+          "height": 128
+        }
+      ],
+      "export_structure": "rigid_node_hierarchy"
+    }
+  ]
+}
