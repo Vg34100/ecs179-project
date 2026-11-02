@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://biw3hgsa8ihhm"]
 
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+
 [ext_resource type="PackedScene" uid="uid://b1gibq521jsh1" path="res://assets/pikmin/models/red/red_pikmin_leaf.glb" id="2_red"]
-[ext_resource type="PackedScene" uid="uid://kctp4bpejphj" path="res://assets/pikmin/models/olimar/olimar.glb" id="3_olimar"]
 [ext_resource type="PackedScene" uid="uid://srhmr0tfkc7e" path="res://assets/pikmin/world/models/enemies/bulborb.glb" id="4_bulborb"]
 
 [sub_resource type="Environment" id="Environment_world"]
@@ -53,24 +54,14 @@ transform = Transform3D(-0.08660254, 0, 0.05000001, 0, 0.1, 0, -0.05000001, 0, -
 [node name="AnimationPlayer" parent="RedPikmin" index="1" unique_id=980721793]
 autoplay = &"Idle"
 
-[node name="Olimar" parent="." instance=ExtResource("3_olimar")]
-transform = Transform3D(-0.08660254, 0, 0.05000001, 0, 0.1, 0, -0.05000001, 0, -0.08660254, 0, 0, 0)
-
-[node name="AnimationPlayer" parent="Olimar" index="1"]
-autoplay = &"Idle"
-
 [node name="Bulborb" parent="." unique_id=1851086026 instance=ExtResource("4_bulborb")]
 transform = Transform3D(-0.08660254, 0, 0.05000001, 0, 0.1, 0, -0.05000001, 0, -0.08660254, 2.1, 0, 0)
 
 [node name="AnimationPlayer" parent="Bulborb" index="1" unique_id=1177934245]
 autoplay = &"Idle"
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.8411806, -0.16125722, 0.5161504, 0, 0.9545009, 0.29820797, -0.54075426, -0.25084677, 0.80290765, 4.5, 3.4, 7)
-projection = 1
-current = true
-size = 7.6
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector3(0, 0.05, 2.5)
 
 [editable path="RedPikmin"]
-[editable path="Olimar"]
 [editable path="Bulborb"]

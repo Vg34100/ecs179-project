@@ -1,0 +1,26 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_player"]
+[ext_resource type="PackedScene" path="res://assets/pikmin/models/olimar/olimar.glb" id="2_olimar"]
+
+[sub_resource type="CapsuleShape3D" id="Shape_player"]
+radius = 0.3
+height = 1.3
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.65, 0)
+shape = SubResource("Shape_player")
+
+[node name="Olimar" parent="." instance=ExtResource("2_olimar")]
+scale = Vector3(0.1, 0.1, 0.1)
+
+[node name="CameraPivot" type="Node3D" parent="."]
+position = Vector3(0, 0.8, 0)
+rotation = Vector3(-0.35, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+position = Vector3(0, 0, 4)
+current = true
