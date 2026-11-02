@@ -3,10 +3,17 @@ extends CharacterBody3D
 @export var move_speed: float = 6.0
 @export var stick_look_speed: float = 2.5
 @export var mouse_sensitivity: float = 0.003
+@export var aim_speed: float = 14.0
+@export var aim_max_distance: float = 6.0
+@export var throw_time: float = 0.9
 
 var squad: Array[Pikmin] = []
+var aim_target := Vector3.ZERO
+var aim_offset := Vector3(0, 0, -3)
+var trajectory_mesh := ImmediateMesh.new()
 
 @onready var camera_pivot: Node3D = $CameraPivot
+@onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var olimar: Node3D = $Olimar
 @onready var animation_player: AnimationPlayer = $Olimar/AnimationPlayer
 
@@ -14,6 +21,7 @@ var squad: Array[Pikmin] = []
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	animation_player.play("Idle")
+	$Trajectory.mesh = trajectory_mesh
 	recruit_starting_squad.call_deferred()
 
 
@@ -34,9 +42,6 @@ func _physics_process(delta: float) -> void:
 	if squad.size() != previous_squad_size:
 		update_squad_positions()
 
-	if Input.is_action_just_pressed("dismiss"):
-		dismiss_squad()
-
 	var look_input := Input.get_vector("look_left", "look_right", "look_up", "look_down")
 	rotate_camera(look_input * stick_look_speed * delta)
 
@@ -49,30 +54,71 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
 	move_and_slide()
 
-	# Face the direction we want to move, without turning the camera.
 	if direction.length_squared() > 0.0:
 		olimar.rotation.y = atan2(-direction.x, -direction.z)
 
-	# Use actual movement so walking into a wall does not keep playing Walk.
 	var horizontal_velocity := Vector2(get_real_velocity().x, get_real_velocity().z)
 	var animation := "Walk" if horizontal_velocity.length() > 0.01 else "Idle"
 	if animation_player.current_animation != animation:
 		animation_player.play(animation, 0.15, 4.0 if animation == "Walk" else 1.0)
 
+	# Aim first so both actions use the circle shown in this frame.
+	update_aim(direction, delta)
+	update_trajectory()
+	if Input.is_action_just_pressed("dismiss"):
+		dismiss_squad()
+
 
 func rotate_camera(amount: Vector2) -> void:
 	camera_pivot.rotation.y -= amount.x
 	camera_pivot.rotation.x = clampf(
-		camera_pivot.rotation.x - amount.y, deg_to_rad(-65.0), deg_to_rad(15.0)
+		camera_pivot.rotation.x - amount.y, deg_to_rad(-70.0), deg_to_rad(-7.0)
 	)
 
 
-func recruit_starting_squad() -> void:
-	for pikmin in get_tree().get_nodes_in_group("pikmin"):
-		add_to_squad(pikmin)
+func update_aim(direction: Vector3, delta: float) -> void:
+	# The left stick steers a cursor offset around Olimar. Releasing holds it.
+	# Camera rotation alone does not change this world-space offset.
+	aim_offset += direction * aim_speed * delta
+	aim_offset = aim_offset.limit_length(aim_max_distance)
+	aim_target = global_position + aim_offset
+
+	# Snap the circle onto the floor if there is ground at the target.
+	var query := PhysicsRayQueryParameters3D.create(
+		aim_target + Vector3.UP * 4.0, aim_target + Vector3.DOWN * 8.0, 1
+	)
+	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	if not hit.is_empty():
+		aim_target = hit["position"]
+	$AimTarget.global_position = aim_target + Vector3.UP * 0.03
+
+
+func get_throw_origin() -> Vector3:
+	# Keep the throw origin tied to the aiming direction, too.
+	var side := aim_offset.normalized().cross(Vector3.UP)
+	return global_position + Vector3.UP * 0.8 + side * 0.4
+
+
+func get_throw_velocity() -> Vector3:
+	# Pick a velocity that reaches the circle after throw_time seconds.
+	# The extra physics step matches gravity being applied before movement.
+	var physics_step := 1.0 / Engine.physics_ticks_per_second
+	return (aim_target - get_throw_origin()) / throw_time - get_gravity() * (throw_time + physics_step) * 0.5
+
+
+func update_trajectory() -> void:
+	var origin := get_throw_origin()
+	var launch_velocity := get_throw_velocity()
+	var physics_step := 1.0 / Engine.physics_ticks_per_second
+	trajectory_mesh.clear_surfaces()
+	trajectory_mesh.surface_begin(Mesh.PRIMITIVE_LINE_STRIP)
+	for point in range(33):
+		var time := throw_time * point / 32.0
+		var position_on_arc := origin + launch_velocity * time + get_gravity() * time * (time + physics_step) * 0.5
+		trajectory_mesh.surface_add_vertex(position_on_arc)
+	trajectory_mesh.surface_end()
 
 
 func add_to_squad(pikmin: Pikmin) -> void:
@@ -80,6 +126,7 @@ func add_to_squad(pikmin: Pikmin) -> void:
 		return
 	squad.append(pikmin)
 	update_squad_positions()
+
 
 func remove_from_squad(pikmin: Pikmin) -> void:
 	if not squad.has(pikmin):
@@ -89,12 +136,14 @@ func remove_from_squad(pikmin: Pikmin) -> void:
 		pikmin.stop_following()
 	update_squad_positions()
 
+
 func dismiss_squad() -> void:
 	for pikmin in squad:
 		if is_instance_valid(pikmin):
 			pikmin.stop_following()
 	squad.clear()
 	update_squad_positions()
+
 
 func update_squad_positions() -> void:
 	# Three columns in a small grid. Offsets stay on the world axes for now.
@@ -104,3 +153,12 @@ func update_squad_positions() -> void:
 		var offset := Vector3((column - 1) * 0.65, 0.0, 0.9 + row * 0.65)
 		squad[index].follow(self, offset)
 	$HUD/SquadCount.text = "Squad: %d" % squad.size()
+
+
+
+
+
+
+func recruit_starting_squad() -> void:
+	for pikmin in get_tree().get_nodes_in_group("pikmin"):
+		add_to_squad(pikmin)
