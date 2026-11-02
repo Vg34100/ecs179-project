@@ -26,3 +26,21 @@ rotation = Vector3(-0.35, 0, 0)
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 position = Vector3(0, 0, 4)
 current = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="SquadCount" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 250.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 22
+text = "Squad: 0"
+
+[node name="Controls" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 46.0
+offset_right = 700.0
+offset_bottom = 110.0
+text = "Move: left stick / WASD | Camera: right stick / mouse
+Dismiss: X / E | Quit: Esc"

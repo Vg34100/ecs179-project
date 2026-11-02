@@ -9,7 +9,7 @@ enum State { IDLE, FOLLOWING }
 @export var stop_distance: float = 0.3
 @export var reaction_delay: float = 0.15
 
-@export var follow_target: Node3D
+var follow_target: Node3D
 var follow_offset := Vector3.ZERO
 var state: State = State.IDLE
 var is_catching_up: bool = false
@@ -21,8 +21,6 @@ var follow_timer: float = 0.0
 
 func _ready() -> void:
 	animation_player.play("Idle")
-	if follow_target != null:
-		state = State.FOLLOWING
 
 
 func _physics_process(delta: float) -> void:

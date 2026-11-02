@@ -47,9 +47,23 @@ mesh = SubResource("Plane_ground")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("Shape_ground")
 
-[node name="RedPikmin" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("2_red")]
+[node name="RedPikmin" parent="." instance=ExtResource("2_red")]
 position = Vector3(-1.8, 0.05, 0)
-follow_target = NodePath("../Player")
+
+[node name="RedPikmin2" parent="." instance=ExtResource("2_red")]
+position = Vector3(-0.8, 0.05, 0.3)
+
+[node name="RedPikmin3" parent="." instance=ExtResource("2_red")]
+position = Vector3(0.2, 0.05, -0.4)
+
+[node name="RedPikmin4" parent="." instance=ExtResource("2_red")]
+position = Vector3(-2.4, 0.05, -1.5)
+
+[node name="RedPikmin5" parent="." instance=ExtResource("2_red")]
+position = Vector3(1, 0.05, -1)
+
+[node name="RedPikmin6" parent="." instance=ExtResource("2_red")]
+position = Vector3(-3, 0.05, 1)
 
 [node name="Bulborb" parent="." unique_id=1851086026 instance=ExtResource("4_bulborb")]
 transform = Transform3D(-0.08660254, 0, 0.05000001, 0, 0.1, 0, -0.05000001, 0, -0.08660254, 2.1, 0, 0)
