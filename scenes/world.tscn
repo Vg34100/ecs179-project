@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" path="res://scenes/pikmin.tscn" id="2_red"]
-[ext_resource type="PackedScene" uid="uid://srhmr0tfkc7e" path="res://assets/pikmin/world/models/enemies/bulborb.glb" id="4_bulborb"]
+[ext_resource type="PackedScene" path="res://scenes/bulborb.tscn" id="4_bulborb"]
+
+[ext_resource type="PackedScene" path="res://scenes/dwarf_bulborb.tscn" id="5_dwarf"]
 
 [sub_resource type="Environment" id="Environment_world"]
 background_mode = 1
@@ -20,10 +22,10 @@ roughness = 0.9
 
 [sub_resource type="PlaneMesh" id="Plane_ground"]
 material = SubResource("Material_ground")
-size = Vector2(14, 12)
+size = Vector2(28, 24)
 
 [sub_resource type="BoxShape3D" id="Shape_ground"]
-size = Vector3(14, 0.1, 12)
+size = Vector3(28, 0.1, 24)
 
 [node name="World" type="Node3D" unique_id=753570163]
 
@@ -36,7 +38,7 @@ light_color = Color(1, 0.92, 0.8, 1)
 light_angular_distance = 1.0
 shadow_enabled = true
 shadow_opacity = 0.65
-directional_shadow_max_distance = 20.0
+directional_shadow_max_distance = 40.0
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=479041898]
 mesh = SubResource("Plane_ground")
@@ -65,13 +67,17 @@ position = Vector3(1, 0.05, -1)
 [node name="RedPikmin6" parent="." instance=ExtResource("2_red")]
 position = Vector3(-3, 0.05, 1)
 
-[node name="Bulborb" parent="." unique_id=1851086026 instance=ExtResource("4_bulborb")]
-transform = Transform3D(-0.08660254, 0, 0.05000001, 0, 0.1, 0, -0.05000001, 0, -0.08660254, 2.1, 0, 0)
+[node name="Bulborb" parent="." instance=ExtResource("4_bulborb")]
+position = Vector3(4, 0.05, -6)
 
-[node name="AnimationPlayer" parent="Bulborb" index="1" unique_id=1592200206]
-autoplay = &"Idle"
+[node name="DwarfBulborb1" parent="." instance=ExtResource("5_dwarf")]
+position = Vector3(-5, 0.05, -6)
+
+[node name="DwarfBulborb2" parent="." instance=ExtResource("5_dwarf")]
+position = Vector3(0, 0.05, -8)
+
+[node name="DwarfBulborb3" parent="." instance=ExtResource("5_dwarf")]
+position = Vector3(7, 0.05, -2)
 
 [node name="Player" parent="." unique_id=1763810103 instance=ExtResource("1_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 2.5)
-
-[editable path="Bulborb"]
