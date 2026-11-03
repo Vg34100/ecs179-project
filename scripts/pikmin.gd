@@ -1,7 +1,7 @@
 class_name Pikmin
 extends CharacterBody3D
 
-enum State { IDLE, FOLLOWING }
+enum State { IDLE, FOLLOWING, THROWN }
 
 @export var move_speed: float = 8.0
 @export var acceleration: float = 24.0
@@ -24,20 +24,25 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var desired_velocity := Vector3.ZERO
-	if state == State.FOLLOWING:
-		if is_instance_valid(follow_target):
-			desired_velocity = get_follow_velocity(delta)
-		else:
-			stop_following()
-	velocity.x = move_toward(velocity.x, desired_velocity.x, acceleration * delta)
-	velocity.z = move_toward(velocity.z, desired_velocity.z, acceleration * delta)
-	if desired_velocity.length_squared() > 0.01:
-		var facing := atan2(-desired_velocity.x, -desired_velocity.z)
-		model.rotation.y = lerp_angle(model.rotation.y, facing, minf(10.0 * delta, 1.0))
-	if not is_on_floor():
+	if state != State.THROWN:
+		var desired_velocity := Vector3.ZERO
+		if state == State.FOLLOWING:
+			if is_instance_valid(follow_target):
+				desired_velocity = get_follow_velocity(delta)
+			else:
+				stop_following()
+
+		velocity.x = move_toward(velocity.x, desired_velocity.x, acceleration * delta)
+		velocity.z = move_toward(velocity.z, desired_velocity.z, acceleration * delta)
+		if desired_velocity.length_squared() > 0.01:
+			var facing := atan2(-desired_velocity.x, -desired_velocity.z)
+			model.rotation.y = lerp_angle(model.rotation.y, facing, minf(10.0 * delta, 1.0))
+
+	if state == State.THROWN or not is_on_floor():
 		velocity += get_gravity() * delta
 	move_and_slide()
+	if state == State.THROWN and is_on_floor():
+		stop_following()
 	update_animation()
 
 
@@ -86,7 +91,20 @@ func stop_following() -> void:
 
 
 func update_animation() -> void:
+	if state == State.THROWN:
+		return
+
 	var horizontal_velocity := Vector2(get_real_velocity().x, get_real_velocity().z)
 	var animation := "Walk" if horizontal_velocity.length() > 0.15 else "Idle"
 	if animation_player.current_animation != animation:
 		animation_player.play(animation, 0.1, 4.0 if animation == "Walk" else 1.0)
+
+
+func launch(throw_velocity: Vector3) -> void:
+	follow_target = null
+	state = State.THROWN
+	is_catching_up = false
+	follow_timer = 0.0
+	velocity = throw_velocity
+	model.rotation.y = atan2(-velocity.x, -velocity.z)
+	animation_player.play("Throw", 0.1)

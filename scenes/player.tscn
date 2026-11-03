@@ -60,6 +60,7 @@ offset_top = 46.0
 offset_right = 700.0
 offset_bottom = 147.0
 text = "Move + aim: left stick / WASD | Camera: right stick / mouse
+Throw: A / Space / left click
 Whistle: hold B / Q / right click | Dismiss: X / E | Quit: Esc"
 
 [node name="WhistleRadius" type="MeshInstance3D" parent="." unique_id=993947574]

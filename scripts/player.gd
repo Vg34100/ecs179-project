@@ -71,6 +71,8 @@ func _physics_process(delta: float) -> void:
 	update_trajectory()
 	if Input.is_action_just_pressed("dismiss"):
 		dismiss_squad()
+	if Input.is_action_just_pressed("throw"):
+		throw_pikmin()
 	update_whistle(delta)
 
 
@@ -180,3 +182,15 @@ func update_whistle(delta: float) -> void:
 		offset.y = 0.0
 		if offset.length() <= whistle_radius:
 			add_to_squad(pikmin)
+
+
+func throw_pikmin() -> void:
+	if squad.is_empty():
+		return
+
+	var pikmin := squad[0]
+	remove_from_squad(pikmin)
+	var direction := aim_target - global_position
+	olimar.rotation.y = atan2(-direction.x, -direction.z)
+	pikmin.global_position = get_throw_origin()
+	pikmin.launch(get_throw_velocity())
