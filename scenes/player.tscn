@@ -7,6 +7,14 @@
 radius = 0.3
 height = 1.3
 
+[sub_resource type="StandardMaterial3D" id="Material_whistle"]
+shading_mode = 0
+albedo_color = Color(0.25, 1, 0.65, 1)
+
+[sub_resource type="TorusMesh" id="Mesh_whistle"]
+material = SubResource("Material_whistle")
+inner_radius = 0.98
+
 [sub_resource type="StandardMaterial3D" id="Material_aim"]
 render_priority = 1
 no_depth_test = true
@@ -52,7 +60,13 @@ offset_top = 46.0
 offset_right = 700.0
 offset_bottom = 147.0
 text = "Move + aim: left stick / WASD | Camera: right stick / mouse
-Dismiss: X / E | Quit: Esc"
+Whistle: hold B / Q / right click | Dismiss: X / E | Quit: Esc"
+
+[node name="WhistleRadius" type="MeshInstance3D" parent="." unique_id=993947574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
+top_level = true
+visible = false
+mesh = SubResource("Mesh_whistle")
 
 [node name="AimTarget" type="MeshInstance3D" parent="." unique_id=754266114]
 top_level = true

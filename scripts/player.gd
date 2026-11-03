@@ -6,10 +6,13 @@ extends CharacterBody3D
 @export var aim_speed: float = 14.0
 @export var aim_max_distance: float = 6.0
 @export var throw_time: float = 0.9
+@export var whistle_max_radius: float = 6.5
+@export var whistle_growth_speed: float = 8.0
 
 var squad: Array[Pikmin] = []
 var aim_target := Vector3.ZERO
 var aim_offset := Vector3(0, 0, -3)
+var whistle_radius: float = 0.0
 var trajectory_mesh := ImmediateMesh.new()
 
 @onready var camera_pivot: Node3D = $CameraPivot
@@ -22,7 +25,6 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	animation_player.play("Idle")
 	$Trajectory.mesh = trajectory_mesh
-	recruit_starting_squad.call_deferred()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -69,6 +71,7 @@ func _physics_process(delta: float) -> void:
 	update_trajectory()
 	if Input.is_action_just_pressed("dismiss"):
 		dismiss_squad()
+	update_whistle(delta)
 
 
 func rotate_camera(amount: Vector2) -> void:
@@ -155,10 +158,25 @@ func update_squad_positions() -> void:
 	$HUD/SquadCount.text = "Squad: %d" % squad.size()
 
 
+func update_whistle(delta: float) -> void:
+	if not Input.is_action_pressed("whistle"):
+		whistle_radius = 0.0
+		$WhistleRadius.hide()
+		return
 
+	# Grow from the aiming circle. The maximum always reaches back to Olimar.
+	var to_player := global_position - aim_target
+	to_player.y = 0.0
+	var maximum := maxf(whistle_max_radius, to_player.length() + 0.5)
+	whistle_radius = move_toward(whistle_radius, maximum, whistle_growth_speed * delta)
+	$WhistleRadius.global_position = aim_target + Vector3.UP * 0.04
+	$WhistleRadius.scale = Vector3(whistle_radius, 1.0, whistle_radius)
+	$WhistleRadius.show()
 
-
-
-func recruit_starting_squad() -> void:
 	for pikmin in get_tree().get_nodes_in_group("pikmin"):
-		add_to_squad(pikmin)
+		var offset: Vector3 = pikmin.global_position - aim_target
+		if absf(offset.y) > 1.0:
+			continue
+		offset.y = 0.0
+		if offset.length() <= whistle_radius:
+			add_to_squad(pikmin)
