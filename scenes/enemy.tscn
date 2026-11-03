@@ -16,3 +16,11 @@ shape = SubResource("Body_shape")
 
 [node name="Model" type="Node3D" parent="."]
 scale = Vector3(0.1, 0.1, 0.1)
+
+[node name="Health" type="Label3D" parent="."]
+position = Vector3(0, 2, 0)
+billboard = 1
+font_size = 32
+pixel_size = 0.006
+no_depth_test = true
+text = "120 / 120"

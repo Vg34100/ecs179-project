@@ -92,7 +92,7 @@ func update_aim(direction: Vector3, delta: float) -> void:
 
 	# Snap the circle onto the floor if there is ground at the target.
 	var query := PhysicsRayQueryParameters3D.create(
-		aim_target + Vector3.UP * 4.0, aim_target + Vector3.DOWN * 8.0, 1
+		aim_target + Vector3.UP * 4.0, aim_target + Vector3.DOWN * 8.0, 5
 	)
 	var hit := get_world_3d().direct_space_state.intersect_ray(query)
 	if not hit.is_empty():
@@ -127,7 +127,7 @@ func update_trajectory() -> void:
 
 
 func add_to_squad(pikmin: Pikmin) -> void:
-	if squad.has(pikmin) or pikmin.state != Pikmin.State.IDLE:
+	if squad.has(pikmin) or pikmin.state not in [Pikmin.State.IDLE, Pikmin.State.ATTACKING, Pikmin.State.LATCHED]:
 		return
 	squad.append(pikmin)
 	update_squad_positions()
@@ -177,7 +177,7 @@ func update_whistle(delta: float) -> void:
 
 	for pikmin in get_tree().get_nodes_in_group("pikmin"):
 		var offset: Vector3 = pikmin.global_position - aim_target
-		if absf(offset.y) > 1.0:
+		if absf(offset.y) > 2.5:
 			continue
 		offset.y = 0.0
 		if offset.length() <= whistle_radius:

@@ -8,7 +8,10 @@ size = Vector3(0.65, 0.65, 0.9)
 
 [node name="DwarfBulborb" instance=ExtResource("1_base")]
 move_speed = 2.2
-stop_distance = 0.9
+bite_range = 0.9
+max_health = 40
+landing_damage = 30
+allows_latching = false
 
 [node name="CollisionShape3D" parent="." index="0"]
 position = Vector3(0, 0.325, 0)
@@ -18,3 +21,7 @@ shape = SubResource("Dwarf_shape")
 scale = Vector3(0.08, 0.08, 0.08)
 
 [node name="Visual" parent="Model" instance=ExtResource("2_model")]
+
+[node name="Health" parent="." index="2"]
+position = Vector3(0, 1.2, 0)
+text = "40 / 40"
