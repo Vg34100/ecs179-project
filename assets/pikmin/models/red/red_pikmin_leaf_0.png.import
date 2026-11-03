@@ -3,23 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://eu1pcgx315lq"
-path.s3tc="res://.godot/imported/red_pikmin_leaf_0.png-9831ff56d86c6fe36a1def7f285b008f.s3tc.ctex"
+path="res://.godot/imported/red_pikmin_leaf_0.png-9831ff56d86c6fe36a1def7f285b008f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "e4e8b0ff56045c36838c670420b2d302"
+"md5": "2f00891a53cd361ce5de22bef1486004"
 }
 
 [deps]
 
 source_file="res://assets/pikmin/models/red/red_pikmin_leaf_0.png"
-dest_files=["res://.godot/imported/red_pikmin_leaf_0.png-9831ff56d86c6fe36a1def7f285b008f.s3tc.ctex"]
+dest_files=["res://.godot/imported/red_pikmin_leaf_0.png-9831ff56d86c6fe36a1def7f285b008f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +26,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
