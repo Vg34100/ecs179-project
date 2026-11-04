@@ -211,3 +211,13 @@ func _on_animation_finished(animation: StringName) -> void:
 		queue_free()
 	elif animation in [&"Bite", &"Hurt", &"ShakeOff"]:
 		enter_state(State.IDLE)
+
+
+func get_aim_point() -> Vector3:
+	if allows_latching and not back_slots.is_empty():
+		for slot in back_slots:
+			if slot.get_child_count() == 0:
+				return slot.global_position
+		return back_slots[0].global_position
+	var body: CollisionShape3D = $CollisionShape3D
+	return body.global_position + Vector3.UP * body.shape.size.y * 0.5
