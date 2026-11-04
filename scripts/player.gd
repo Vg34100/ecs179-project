@@ -211,6 +211,8 @@ func throw_pikmin() -> void:
 	olimar.rotation.y = atan2(-direction.x, -direction.z)
 	pikmin.global_position = get_throw_origin()
 	pikmin.launch(get_throw_velocity())
+	if is_instance_valid(aim_enemy):
+		pikmin.guide_to(aim_enemy, throw_time)
 
 
 func can_snap_to(enemy: Enemy, distance: float) -> bool:

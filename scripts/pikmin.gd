@@ -12,7 +12,10 @@ enum State { IDLE, FOLLOWING, THROWN, ATTACKING, LATCHED }
 @export var attack_damage: int = 5
 @export var attack_interval: float = 0.8
 @export var attack_range: float = 1.2
+@export var guidance_speed_limit: float = 14.0
 
+var throw_target: Enemy
+var flight_time_left: float = 0.0
 var attack_target: Enemy
 var attack_timer: float = 0.0
 var latch_allowed: bool = true
@@ -56,6 +59,9 @@ func _physics_process(delta: float) -> void:
 		if desired_velocity.length_squared() > 0.01:
 			var facing := atan2(-desired_velocity.x, -desired_velocity.z)
 			model.rotation.y = lerp_angle(model.rotation.y, facing, minf(10.0 * delta, 1.0))
+
+	if state == State.THROWN:
+		update_throw_guidance(delta)
 
 	if state == State.THROWN or not is_on_floor():
 		velocity += get_gravity() * delta
@@ -210,6 +216,8 @@ func attach_to_enemy(enemy: Enemy, slot: Node3D) -> void:
 
 
 func detach_from_enemy() -> void:
+	throw_target = null
+	flight_time_left = 0.0
 	if state == State.LATCHED:
 		reparent(get_tree().current_scene, true)
 		rotation = Vector3.ZERO
@@ -227,3 +235,34 @@ func can_be_bitten() -> bool:
 func get_bitten() -> void:
 	detach_from_enemy()
 	queue_free()
+
+
+func guide_to(enemy: Enemy, flight_time: float) -> void:
+	throw_target = enemy
+	flight_time_left = flight_time
+
+
+func update_throw_guidance(delta: float) -> void:
+	if not is_instance_valid(throw_target) or throw_target.state == Enemy.State.DEAD:
+		throw_target = null
+		return
+
+	# Keep aiming at the original enemy even if Olimar selects another one.
+	var destination := throw_target.get_aim_point()
+	var target_velocity := throw_target.get_real_velocity()
+	var remaining := maxf(flight_time_left, 0.1)
+	var correction := (destination - global_position) / remaining
+	var horizontal := Vector2(correction.x + target_velocity.x, correction.z + target_velocity.z)
+	horizontal = horizontal.limit_length(guidance_speed_limit)
+	velocity.x = horizontal.x
+	velocity.z = horizontal.y
+
+	# Adjust the arc only during the planned flight. Then let gravity finish
+	# the landing, while horizontal guidance keeps up with the moving body.
+	if flight_time_left > 0.0:
+		var time := maxf(flight_time_left, delta)
+		var vertical := (destination.y - global_position.y) / time - get_gravity().y * (time + delta) * 0.5
+		velocity.y = clampf(vertical, -12.0, 12.0)
+		flight_time_left = maxf(0.0, flight_time_left - delta)
+	if horizontal.length_squared() > 0.01:
+		model.rotation.y = atan2(-velocity.x, -velocity.z)
