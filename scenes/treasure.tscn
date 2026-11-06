@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/carryable.tscn" id="1_base"]
+[ext_resource type="PackedScene" path="res://assets/pikmin/world/models/treasures/rubber_duck.glb" id="2_model"]
+
+[node name="Treasure" instance=ExtResource("1_base")]
+kind = 1
+required_carriers = 3
+max_carriers = 6
+seed_yield = 0
+carry_radius = 0.85
+
+[node name="Visual" parent="Visuals" instance=ExtResource("2_model")]
+scale = Vector3(0.08, 0.08, 0.08)

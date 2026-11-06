@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" path="res://scenes/yellow_pikmin.tscn" id="6_yellow"]
 [ext_resource type="PackedScene" path="res://scenes/blue_pikmin.tscn" id="7_blue"]
 
+[ext_resource type="PackedScene" path="res://scenes/food.tscn" id="8_food"]
+
+[ext_resource type="PackedScene" path="res://scenes/treasure.tscn" id="9_treasure"]
+
 [sub_resource type="Environment" id="Environment_world"]
 background_mode = 1
 background_color = Color(0.065, 0.095, 0.14, 1)
@@ -96,3 +100,9 @@ position = Vector3(1.5, 0.05, 2)
 
 [node name="BluePikmin2" parent="." instance=ExtResource("7_blue")]
 position = Vector3(2.2, 0.05, 2.5)
+
+[node name="Food" parent="." instance=ExtResource("8_food")]
+position = Vector3(-6, 0.05, 2)
+
+[node name="Treasure" parent="." instance=ExtResource("9_treasure")]
+position = Vector3(4, 0.05, 1)
