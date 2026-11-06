@@ -1,7 +1,6 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/pikmin/pikmin.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://assets/pikmin/models/red/red_pikmin_leaf.glb" id="2_model"]
 
 [sub_resource type="CapsuleShape3D" id="Shape_pikmin"]
 radius = 0.15
@@ -16,5 +15,5 @@ script = ExtResource("1_script")
 position = Vector3(0, 0.3, 0)
 shape = SubResource("Shape_pikmin")
 
-[node name="Model" parent="." instance=ExtResource("2_model")]
+[node name="Model" type="Node3D" parent="."]
 scale = Vector3(0.06, 0.06, 0.06)

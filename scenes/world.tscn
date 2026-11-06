@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://biw3hgsa8ihhm"]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
-[ext_resource type="PackedScene" path="res://scenes/pikmin.tscn" id="2_red"]
+[ext_resource type="PackedScene" path="res://scenes/red_pikmin.tscn" id="2_red"]
 [ext_resource type="PackedScene" path="res://scenes/bulborb.tscn" id="4_bulborb"]
 
 [ext_resource type="PackedScene" path="res://scenes/dwarf_bulborb.tscn" id="5_dwarf"]
+
+[ext_resource type="PackedScene" path="res://scenes/yellow_pikmin.tscn" id="6_yellow"]
+[ext_resource type="PackedScene" path="res://scenes/blue_pikmin.tscn" id="7_blue"]
 
 [sub_resource type="Environment" id="Environment_world"]
 background_mode = 1
@@ -81,3 +84,15 @@ position = Vector3(7, 0.05, -2)
 
 [node name="Player" parent="." unique_id=1763810103 instance=ExtResource("1_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 2.5)
+
+[node name="YellowPikmin" parent="." instance=ExtResource("6_yellow")]
+position = Vector3(-1.5, 0.05, 2)
+
+[node name="YellowPikmin2" parent="." instance=ExtResource("6_yellow")]
+position = Vector3(-2.2, 0.05, 2.5)
+
+[node name="BluePikmin" parent="." instance=ExtResource("7_blue")]
+position = Vector3(1.5, 0.05, 2)
+
+[node name="BluePikmin2" parent="." instance=ExtResource("7_blue")]
+position = Vector3(2.2, 0.05, 2.5)

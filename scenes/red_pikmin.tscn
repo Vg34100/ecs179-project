@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/pikmin.tscn" id="1_base"]
+[ext_resource type="PackedScene" path="res://assets/pikmin/models/red/red_pikmin_leaf.glb" id="2_model"]
+
+[node name="RedPikmin" instance=ExtResource("1_base")]
+pikmin_type = 0
+
+[node name="Visual" parent="Model" instance=ExtResource("2_model")]

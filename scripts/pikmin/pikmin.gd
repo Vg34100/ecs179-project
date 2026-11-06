@@ -1,6 +1,11 @@
 class_name Pikmin
 extends CharacterBody3D
 
+enum Type { RED, YELLOW, BLUE }
+
+# just the color for now. each type uses the same movement and combat.
+@export var pikmin_type: Type = Type.RED
+
 enum State { IDLE, FOLLOWING, THROWN, ATTACKING, LATCHED }
 
 @export var move_speed: float = 8.0
@@ -26,7 +31,7 @@ var is_catching_up: bool = false
 var follow_timer: float = 0.0
 
 @onready var model: Node3D = $Model
-@onready var animation_player: AnimationPlayer = $Model/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $Model/Visual/AnimationPlayer
 
 
 func _ready() -> void:
