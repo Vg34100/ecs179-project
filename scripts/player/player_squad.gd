@@ -6,6 +6,10 @@ extends Node
 
 var squad: Array[Pikmin] = []
 var whistle_radius: float = 0.0
+var selected_type: Pikmin.Type = Pikmin.Type.RED
+
+const TYPE_ORDER = [Pikmin.Type.RED, Pikmin.Type.YELLOW, Pikmin.Type.BLUE]
+const TYPE_NAMES = ["Red", "Yellow", "Blue"]
 
 @onready var player: CharacterBody3D = get_parent()
 @onready var aim: PlayerAim = $"../Aim"
@@ -53,7 +57,8 @@ func update_squad_positions() -> void:
 		var row := floori(index / 3.0)
 		var offset := Vector3((column - 1) * 0.65, 0.0, 0.9 + row * 0.65)
 		squad[index].follow(player, offset)
-	player.get_node("HUD/SquadCount").text = "Squad: %d" % squad.size()
+	refresh_selection()
+	update_count_label()
 
 
 func update_whistle(delta: float) -> void:
@@ -80,11 +85,11 @@ func update_whistle(delta: float) -> void:
 			add_to_squad(pikmin)
 
 
-func throw_pikmin() -> void:
-	if squad.is_empty():
+func throw_selected() -> void:
+	refresh_selection()
+	var pikmin := get_selected_pikmin()
+	if pikmin == null:
 		return
-
-	var pikmin := squad[0]
 	remove_from_squad(pikmin)
 	var direction := aim.aim_target - player.global_position
 	olimar.rotation.y = atan2(-direction.x, -direction.z)
@@ -92,3 +97,43 @@ func throw_pikmin() -> void:
 	pikmin.launch(aim.get_throw_velocity())
 	if is_instance_valid(aim.aim_enemy):
 		pikmin.guide_to(aim.aim_enemy, aim.throw_time)
+
+
+func get_selected_pikmin() -> Pikmin:
+	# choosing a color doesn't rearrange everyone in the squad.
+	for pikmin in squad:
+		if is_instance_valid(pikmin) and pikmin.pikmin_type == selected_type:
+			return pikmin
+	return null
+
+
+func count_type(pikmin_type: Pikmin.Type) -> int:
+	var count := 0
+	for pikmin in squad:
+		if is_instance_valid(pikmin) and pikmin.pikmin_type == pikmin_type:
+			count += 1
+	return count
+
+
+func cycle_type(direction: int) -> void:
+	var current_index := TYPE_ORDER.find(selected_type)
+	# skip colors we don't have. an empty squad just keeps its last selection.
+	for step in range(1, TYPE_ORDER.size() + 1):
+		var index := posmod(current_index + direction * step, TYPE_ORDER.size())
+		var candidate: Pikmin.Type = TYPE_ORDER[index]
+		if count_type(candidate) > 0:
+			selected_type = candidate
+			break
+	update_count_label()
+
+
+func refresh_selection() -> void:
+	# stay on this color until its last pikmin leaves the squad.
+	if count_type(selected_type) == 0:
+		cycle_type(1)
+
+
+func update_count_label() -> void:
+	player.get_node("HUD/SquadCount").text = "Squad: %d | %s: %d" % [
+		squad.size(), TYPE_NAMES[selected_type], count_type(selected_type)
+	]

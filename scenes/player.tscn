@@ -55,7 +55,7 @@ offset_top = 16.0
 offset_right = 250.0
 offset_bottom = 42.0
 theme_override_font_sizes/font_size = 22
-text = "Squad: 0"
+text = "Squad: 0 | Red: 0"
 
 [node name="Controls" type="Label" parent="HUD" unique_id=1313851751]
 offset_left = 16.0
@@ -63,7 +63,7 @@ offset_top = 46.0
 offset_right = 700.0
 offset_bottom = 147.0
 text = "Move + aim: left stick / WASD | Camera: right stick / mouse
-Throw: A / Space / left click
+Throw: A / Space / left click | Type: LB/RB / Z/C
 Whistle: hold B / Q / right click | Dismiss: X / E | Quit: Esc"
 
 [node name="WhistleRadius" type="MeshInstance3D" parent="." unique_id=993947574]

@@ -103,6 +103,15 @@ throw={
 ]
 }
 
+previous_type={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":90), Object(InputEventJoypadButton,"device":-1,"button_index":9)]
+}
+next_type={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":67), Object(InputEventJoypadButton,"device":-1,"button_index":10)]
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

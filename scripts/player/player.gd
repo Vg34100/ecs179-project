@@ -54,8 +54,12 @@ func _physics_process(delta: float) -> void:
 	aim.update_trajectory()
 	if Input.is_action_just_pressed("dismiss"):
 		squad.dismiss_squad()
+	if Input.is_action_just_pressed("previous_type"):
+		squad.cycle_type(-1)
+	if Input.is_action_just_pressed("next_type"):
+		squad.cycle_type(1)
 	if Input.is_action_just_pressed("throw"):
-		squad.throw_pikmin()
+		squad.throw_selected()
 	squad.update_whistle(delta)
 
 
