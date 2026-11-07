@@ -13,6 +13,10 @@
 
 [ext_resource type="PackedScene" path="res://scenes/treasure.tscn" id="9_treasure"]
 
+[ext_resource type="PackedScene" path="res://scenes/onion.tscn" id="10_onion"]
+
+[ext_resource type="PackedScene" path="res://scenes/ship.tscn" id="11_ship"]
+
 [sub_resource type="Environment" id="Environment_world"]
 background_mode = 1
 background_color = Color(0.065, 0.095, 0.14, 1)
@@ -106,3 +110,9 @@ position = Vector3(-6, 0.05, 2)
 
 [node name="Treasure" parent="." instance=ExtResource("9_treasure")]
 position = Vector3(4, 0.05, 1)
+
+[node name="Onion" parent="." instance=ExtResource("10_onion")]
+position = Vector3(-7, 0, 6)
+
+[node name="Ship" parent="." instance=ExtResource("11_ship")]
+position = Vector3(7, 0, 6)
