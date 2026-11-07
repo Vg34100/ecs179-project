@@ -27,7 +27,10 @@ func remove_deleted_members() -> void:
 
 
 func add_to_squad(pikmin: Pikmin) -> void:
-	if squad.has(pikmin) or pikmin.state not in [Pikmin.State.IDLE, Pikmin.State.ATTACKING, Pikmin.State.LATCHED]:
+	if squad.has(pikmin) or pikmin.state not in [
+		Pikmin.State.IDLE, Pikmin.State.ATTACKING, Pikmin.State.LATCHED,
+		Pikmin.State.MOVING_TO_CARRY, Pikmin.State.CARRYING,
+	]:
 		return
 	squad.append(pikmin)
 	update_squad_positions()

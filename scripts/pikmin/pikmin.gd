@@ -6,7 +6,7 @@ enum Type { RED, YELLOW, BLUE }
 # just the color for now. each type uses the same movement and combat.
 @export var pikmin_type: Type = Type.RED
 
-enum State { IDLE, FOLLOWING, THROWN, ATTACKING, LATCHED }
+enum State { IDLE, FOLLOWING, THROWN, ATTACKING, LATCHED, MOVING_TO_CARRY, CARRYING }
 
 @export var move_speed: float = 8.0
 @export var acceleration: float = 24.0
@@ -30,6 +30,7 @@ var state: State = State.IDLE
 var is_catching_up: bool = false
 var follow_timer: float = 0.0
 
+@onready var carrying: PikminCarrying = $Carrying
 @onready var model: Node3D = $Model
 @onready var animation_player: AnimationPlayer = $Model/Visual/AnimationPlayer
 
@@ -37,9 +38,15 @@ var follow_timer: float = 0.0
 func _ready() -> void:
 	animation_player.play("Idle")
 	animation_player.get_animation("Attack").loop_mode = Animation.LOOP_LINEAR
+	animation_player.get_animation("Carry").loop_mode = Animation.LOOP_LINEAR
 
 
 func _physics_process(delta: float) -> void:
+	carrying.update(delta)
+	if state == State.CARRYING:
+		update_animation()
+		return
+
 	if state == State.LATCHED:
 		if is_instance_valid(attack_target) and attack_target.state != Enemy.State.DEAD:
 			attack(delta)
@@ -58,6 +65,8 @@ func _physics_process(delta: float) -> void:
 
 		if state == State.ATTACKING:
 			desired_velocity = get_attack_velocity(delta)
+		if state == State.MOVING_TO_CARRY:
+			desired_velocity = carrying.get_velocity()
 
 		velocity.x = move_toward(velocity.x, desired_velocity.x, acceleration * delta)
 		velocity.z = move_toward(velocity.z, desired_velocity.z, acceleration * delta)
@@ -118,6 +127,7 @@ func get_follow_velocity(delta: float) -> Vector3:
 
 
 func follow(target: Node3D, offset: Vector3) -> void:
+	carrying.cancel()
 	if state in [State.ATTACKING, State.LATCHED]:
 		detach_from_enemy()
 	if follow_target != target or state != State.FOLLOWING:
@@ -129,6 +139,7 @@ func follow(target: Node3D, offset: Vector3) -> void:
 
 
 func stop_following() -> void:
+	carrying.cancel()
 	follow_target = null
 	state = State.IDLE
 	collision_mask = 1
@@ -144,6 +155,8 @@ func update_animation() -> void:
 
 	var horizontal_velocity := Vector2(get_real_velocity().x, get_real_velocity().z)
 	var animation := "Walk" if horizontal_velocity.length() > 0.15 else "Idle"
+	if state == State.CARRYING:
+		animation = "Carry"
 	if state == State.LATCHED or (state == State.ATTACKING and animation == "Idle"):
 		animation = "Attack"
 	if animation_player.current_animation != animation:
@@ -151,6 +164,7 @@ func update_animation() -> void:
 
 
 func launch(throw_velocity: Vector3, allow_latch: bool = true) -> void:
+	carrying.cancel()
 	detach_from_enemy()
 	latch_allowed = allow_latch
 	collision_mask = 5
@@ -177,6 +191,7 @@ func find_nearby_enemy() -> Enemy:
 
 
 func start_attacking(enemy: Enemy) -> void:
+	carrying.cancel()
 	detach_from_enemy()
 	follow_target = null
 	attack_target = enemy
@@ -206,6 +221,7 @@ func attack(delta: float) -> void:
 
 
 func attach_to_enemy(enemy: Enemy, slot: Node3D) -> void:
+	carrying.cancel()
 	attack_target = enemy
 	follow_target = null
 	attack_timer = 0.0
@@ -234,10 +250,14 @@ func detach_from_enemy() -> void:
 
 
 func can_be_bitten() -> bool:
-	return not is_queued_for_deletion() and state in [State.IDLE, State.FOLLOWING, State.ATTACKING]
+	return not is_queued_for_deletion() and state in [
+		State.IDLE, State.FOLLOWING, State.ATTACKING,
+		State.MOVING_TO_CARRY, State.CARRYING,
+	]
 
 
 func get_bitten() -> void:
+	carrying.cancel()
 	detach_from_enemy()
 	queue_free()
 
