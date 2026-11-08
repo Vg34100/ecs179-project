@@ -9,6 +9,7 @@ extends Node
 
 var aim_target := Vector3.ZERO
 var aim_enemy: Enemy
+var aim_carryable: Carryable
 var aim_offset := Vector3(0, 0, -3)
 var trajectory_mesh := ImmediateMesh.new()
 
@@ -41,10 +42,12 @@ func update_aim(direction: Vector3, delta: float) -> void:
 	if not is_instance_valid(aim_enemy):
 		aim_enemy = find_aim_enemy()
 	if is_instance_valid(aim_enemy):
+		# keep enemy priority so a nearby corpse doesn't steal a combat throw.
+		aim_carryable = null
 		aim_target = aim_enemy.get_aim_point()
 		aim_material.albedo_color = Color(1, 0.35, 0.2)
 	else:
-		aim_material.albedo_color = Color(1, 0.8, 0.2)
+		update_carryable_aim()
 	player.get_node("AimTarget").global_position = aim_target + Vector3.UP * 0.03
 
 
@@ -77,7 +80,10 @@ func update_trajectory() -> void:
 
 
 func can_snap_to(enemy: Enemy, distance: float) -> bool:
-	var point := enemy.get_aim_point()
+	return can_snap_to_point(enemy.get_aim_point(), distance)
+
+
+func can_snap_to_point(point: Vector3, distance: float) -> bool:
 	var from_player := point - player.global_position
 	from_player.y = 0.0
 	var from_cursor := point - (player.global_position + aim_offset)
@@ -96,4 +102,33 @@ func find_aim_enemy() -> Enemy:
 		if offset.length() < best_distance:
 			best_distance = offset.length()
 			closest = enemy
+	return closest
+
+
+func update_carryable_aim() -> void:
+	if is_instance_valid(aim_carryable):
+		if not aim_carryable.has_space() or not can_snap_to_point(aim_carryable.get_aim_point(), aim_release_distance):
+			aim_carryable = null
+	if not is_instance_valid(aim_carryable):
+		aim_carryable = find_aim_carryable()
+	if is_instance_valid(aim_carryable):
+		aim_target = aim_carryable.get_aim_point()
+		aim_material.albedo_color = Color(0.4, 1.0, 0.5)
+	else:
+		aim_material.albedo_color = Color(1, 0.8, 0.2)
+
+
+func find_aim_carryable() -> Carryable:
+	var closest: Carryable = null
+	var best_distance := aim_snap_distance
+	for node in get_tree().get_nodes_in_group("carryables"):
+		var item := node as Carryable
+		# no point selecting an object that can't take another worker.
+		if not item.has_space() or not can_snap_to_point(item.get_aim_point(), aim_snap_distance):
+			continue
+		var offset := item.get_aim_point() - (player.global_position + aim_offset)
+		offset.y = 0.0
+		if offset.length() < best_distance:
+			best_distance = offset.length()
+			closest = item
 	return closest
