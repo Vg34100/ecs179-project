@@ -12,6 +12,10 @@ bite_range = 0.9
 max_health = 40
 landing_damage = 30
 allows_latching = false
+corpse_required_carriers = 1
+corpse_max_carriers = 2
+corpse_seed_yield = 3
+corpse_carry_radius = 0.65
 
 [node name="CollisionShape3D" parent="." index="0"]
 position = Vector3(0, 0.325, 0)

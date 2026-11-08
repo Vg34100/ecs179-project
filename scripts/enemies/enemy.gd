@@ -3,6 +3,13 @@ extends CharacterBody3D
 
 enum State { IDLE, CHASE, BITE, HURT, SHAKE, DEAD }
 
+const CARRYABLE_SCENE = preload("res://scenes/carryable.tscn")
+
+@export var corpse_required_carriers: int = 5
+@export var corpse_max_carriers: int = 10
+@export var corpse_seed_yield: int = 8
+@export var corpse_carry_radius: float = 1.2
+
 @export var move_speed: float = 1.8
 @export var detection_range: float = 5.0
 @export var bite_range: float = 1.25
@@ -119,6 +126,7 @@ func enter_state(next_state: State) -> void:
 		State.HURT: animation_player.play("Hurt", 0.1)
 		State.SHAKE: animation_player.play("ShakeOff", 0.1)
 		State.DEAD:
+			# riders must leave before the model is turned into a corpse.
 			collision_layer = 0
 			for pikmin in get_latched_pikmin():
 				pikmin.detach_from_enemy()
@@ -134,6 +142,7 @@ func take_damage(amount: int) -> void:
 	if health == 0:
 		enter_state(State.DEAD)
 	elif state in [State.IDLE, State.CHASE] and hurt_cooldown <= 0.0:
+		# restarting hurt on every hit would stop it ever getting another turn.
 		hurt_cooldown = 2.0
 		enter_state(State.HURT)
 
@@ -188,6 +197,7 @@ func shake_off() -> void:
 
 
 func bite() -> void:
+	# use the animated mouth, not the center of the enemy.
 	var mouth := skeleton.global_transform * skeleton.get_bone_global_pose(bite_bone).origin
 	var victim: Node3D = null
 	var best_distance: float = 0.85
@@ -208,7 +218,7 @@ func update_health_label() -> void:
 
 func _on_animation_finished(animation: StringName) -> void:
 	if state == State.DEAD and animation == &"Death":
-		queue_free()
+		become_carryable()
 	elif animation in [&"Bite", &"Hurt", &"ShakeOff"]:
 		enter_state(State.IDLE)
 
@@ -221,3 +231,25 @@ func get_aim_point() -> Vector3:
 		return back_slots[0].global_position
 	var body: CollisionShape3D = $CollisionShape3D
 	return body.global_position + Vector3.UP * body.shape.size.y * 0.5
+
+
+func become_carryable() -> void:
+	var corpse: Carryable = CARRYABLE_SCENE.instantiate()
+	corpse.kind = Carryable.Kind.FOOD
+	corpse.required_carriers = corpse_required_carriers
+	corpse.max_carriers = corpse_max_carriers
+	corpse.seed_yield = corpse_seed_yield
+	corpse.carry_radius = corpse_carry_radius
+	# reuse this enemy's shape instead of guessing its size again.
+	var old_shape: CollisionShape3D = $CollisionShape3D
+	var new_shape: CollisionShape3D = corpse.get_node("CollisionShape3D")
+	new_shape.shape = old_shape.shape.duplicate()
+	new_shape.position = old_shape.position
+	corpse.get_node("CarryCount").position = $Health.position
+	get_tree().current_scene.add_child(corpse)
+	corpse.global_transform = global_transform
+	# keep the death pose but hand the model to a different object.
+	# the old enemy script, health label and enemy group go away together.
+	animation_player.stop(true)
+	model.reparent(corpse.get_node("Visuals"), false)
+	queue_free()
