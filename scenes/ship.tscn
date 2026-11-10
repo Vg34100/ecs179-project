@@ -1,7 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://81k6cp3bp5lk"]
 
-[ext_resource type="Script" path="res://scripts/objects/ship.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://assets/pikmin/world/models/ship/ss_dolphin.glb" id="2_model"]
+[ext_resource type="Script" uid="uid://c87axeonlxpth" path="res://scripts/objects/ship.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://dnc3db3rdqbpb" path="res://assets/pikmin/world/models/ship/ss_dolphin.glb" id="2_model"]
 
 [sub_resource type="StandardMaterial3D" id="Material_ring"]
 shading_mode = 0
@@ -12,15 +12,15 @@ material = SubResource("Material_ring")
 inner_radius = 0.75
 outer_radius = 0.8
 
-[node name="Ship" type="Node3D" groups=["delivery_points"]]
+[node name="Ship" type="Node3D" unique_id=1743645883 groups=["delivery_points"]]
 script = ExtResource("1_script")
 
-[node name="Visual" parent="." instance=ExtResource("2_model")]
-scale = Vector3(0.16, 0.16, 0.16)
+[node name="Visual" parent="." unique_id=192382877 instance=ExtResource("2_model")]
+transform = Transform3D(-6.993822e-09, 0, 0.16, 0, 0.16, 0, -0.16, 0, -6.993822e-09, 0, 0, 0)
 
-[node name="CollectionPoint" type="Marker3D" parent="."]
-position = Vector3(-2.4, 0, 0)
+[node name="CollectionPoint" type="Marker3D" parent="." unique_id=633252159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, 0)
 
-[node name="Ring" type="MeshInstance3D" parent="CollectionPoint"]
-position = Vector3(0, 0.03, 0)
+[node name="Ring" type="MeshInstance3D" parent="CollectionPoint" unique_id=1920874015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
 mesh = SubResource("Mesh_ring")
